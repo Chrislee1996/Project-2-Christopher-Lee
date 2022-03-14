@@ -34,10 +34,10 @@ router.post('/', (req,res)=> {
         .then((response)=> response.json())
         .then((data)=> {
             console.log(data)
-            // console.log(data.similarartists.artist[0].name)
+            // console.log('this should output the first artist in the array', data.similarartists.artist[0].name)
         res.render('similarArtist/show', {
                 artist: data.similarartists.artist,
-                link: data.similarartists.artist[1]
+                link: data.similarartists.artist
             })
         })
         .catch((err) => {

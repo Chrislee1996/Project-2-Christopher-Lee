@@ -1,0 +1,19 @@
+{% layout 'layout.liquid'%}
+
+{% block content %}
+    <body class="text-center">
+        <form action="/topAlbums/" method ="POST">
+            <input type="text"  name="artist" placeholder= 'Enter an Artist'/> 
+            <input type="submit" class="btn btn-success">
+        </form> </br>
+        <h1 class="display-3">Results:</h1>
+        {% for albums in album %}
+        <ul> 
+            <h5> {{albums.name}}   </h5>
+            <a href={{albums.url}}>Check it out!</a> </br>
+            # Of Plays: {{albums.playcount}}
+        </ul>
+        {% endfor %}
+
+{% endblock %}
+
