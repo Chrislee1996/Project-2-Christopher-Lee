@@ -1,8 +1,10 @@
 {% layout 'layout.liquid'%}
 {% block content %}
+<body class="text-center"> 
 <h1> Search for Top Songs of an Artist </h1>
 <form action="/topSongs/" method ="POST">
     <input type="text" id='quantity' name="song" placeholder= 'Enter the Artist'/> 
     <input type="submit" class="btn btn-success">
 </form>
+<body class="text-center"> 
 {% endblock %}

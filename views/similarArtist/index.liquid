@@ -1,8 +1,10 @@
 {% layout 'layout.liquid'%}
 {% block content %}
+<body class="text-center"> 
 <h1> Search for similar Artist </h1>
 <form action="/similarArtist/" method ="POST">
     <input type="text" id='quantity' name="artist" placeholder= 'Enter an Artist'/> 
     <input type="submit" class="btn btn-success">
 </form>
+</body>
 {% endblock %}
