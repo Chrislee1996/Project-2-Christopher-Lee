@@ -6,6 +6,7 @@ const express = require("express")
 const middleware = require('./utils/middleware')
 const ProfileRouter = require('./controllers/profile')
 const UserRouter = require('./controllers/user')
+const ArtistRoute = require('./controllers/similarArtist')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -23,6 +24,8 @@ middleware(app)
 
 app.use('/auth', UserRouter)
 app.use('/profile', ProfileRouter)
+app.use('/similarArtist', ArtistRoute)
+
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
