@@ -19,3 +19,28 @@ router.use((req, res, next) => {
 		res.redirect('/auth/login')
 	}
 })
+
+//routes
+router.get('/', (req,res)=> {
+    res.render('topSongs/index')
+})
+
+router.post('/', (req,res)=> {
+    const song = req.body.song
+    const url = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${song}&api_key=${process.env.APIKEY}&format=json`
+    fetch(url)
+        .then((response)=> response.json())
+        .then((data)=> {
+            // console.log('this should output the 1st song in the array',data.toptracks.track[0])
+        res.render('topSongs/show', {
+                songs: data.toptracks.track
+            })
+        })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
+		})
+})
+
+
+module.exports=router

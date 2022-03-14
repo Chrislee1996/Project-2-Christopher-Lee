@@ -1,0 +1,20 @@
+{% layout 'layout.liquid'%}
+
+{% block content %}
+    <body class="text-center">
+        <form action="/topSongs/" method ="POST">
+            <input type="text"  name="song" placeholder= 'Enter an Artist'/> 
+            <input type="submit" class="btn btn-success">
+        </form> </br>
+        <h1 class="display-3">Results:</h1>
+        {% for song in songs %}
+            <ul> 
+                {{song['@attr'].rank}} 
+                <h5 class="display-5 ">{{song.name}}:</h5> </br>
+                Play Count: {{song.playcount}} </br>
+                <a href={{song.url}}>Check it out!</a> </br>
+            </ul>
+        {% endfor %}
+
+
+{% endblock %}

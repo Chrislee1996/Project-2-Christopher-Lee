@@ -37,10 +37,10 @@ router.post('/', (req,res)=> {
                 album: data.topalbums.album
             })
         })
-        // .catch((err) => {
-		// 	console.log(err)
-		// 	res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
-		// })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
+		})
 })
 
 
