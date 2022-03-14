@@ -9,11 +9,14 @@
         <h1 class="display-3">Results:</h1>
         {% for albums in album %}
         <ul> 
-            <h5> {{albums.name}}   </h5>
+            <h5 class="display-1"> {{albums.name}}:</h5> </br>
+            <img src = {{albums.image[2]['#text']}} > </br>
             <a href={{albums.url}}>Check it out!</a> </br>
             # Of Plays: {{albums.playcount}}
         </ul>
         {% endfor %}
 
+
 {% endblock %}
 
+<!-- data.topalbums.album[0].image[0] -->

@@ -37,7 +37,6 @@ router.post('/', (req,res)=> {
             // console.log('this should output the first artist in the array', data.similarartists.artist[0].name)
         res.render('similarArtist/show', {
                 artist: data.similarartists.artist,
-                link: data.similarartists.artist
             })
         })
         .catch((err) => {

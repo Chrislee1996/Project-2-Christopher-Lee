@@ -32,14 +32,15 @@ router.post('/', (req,res)=> {
         .then((response)=> response.json())
         .then((data)=> {
             // console.log('this should output the 1st album in the array',data.topalbums.album[0])
+			// console.log('should link the image of the album', data.topalbums.album[0].image[0])
         res.render('topAlbums/show', {
-                album: data.topalbums.album,
+                album: data.topalbums.album
             })
         })
-        .catch((err) => {
-			console.log(err)
-			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
-		})
+        // .catch((err) => {
+		// 	console.log(err)
+		// 	res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
+		// })
 })
 
 
