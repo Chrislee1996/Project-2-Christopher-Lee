@@ -6,7 +6,13 @@
             <input type="text"  name="artist" placeholder= 'Enter an Artist'/> 
             <input type="submit" class="btn btn-success">
         </form> </br>
-        <h1 class="display-3">Artist similar to: </h1>
-        {{artist}}
-        <a href= {{link}}>Profile</a>
+        <h1 class="display-3">Results:</h1>
+        {% for artists in artist %}
+        <ul> 
+           <h5> {{artists.name}}   </h5>
+            Likihood of likeness: {{artists.match}} </br>
+           <a href={{artists.url}}>Profile</a>
+        </ul>
+        {% endfor %}
+
 {% endblock %}

@@ -33,9 +33,11 @@ router.post('/', (req,res)=> {
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
+            console.log(data)
+            // console.log(data.similarartists.artist[0].name)
         res.render('similarArtist/show', {
-                artist: data.similarartists.artist[0].name,
-                link: data.similarartists.artist[0].url
+                artist: data.similarartists.artist,
+                link: data.similarartists.artist[1]
             })
         })
         .catch((err) => {
