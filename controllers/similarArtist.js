@@ -29,19 +29,18 @@ router.get('/', (req,res)=> {
 
 router.post('/', (req,res)=> {
     const artist = req.body.artist
-    const url = `https://https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${process.env.APIKEY}&format=json`
+    const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
-            console.log(data)
-            // console.log('should show us the the request info', data.weather[0].description)
-        // res.render('similarArtist/show', {
-
-            // })
+        res.render('similarArtist/show', {
+                artist: data.similarartists.artist[0].name,
+                link: data.similarartists.artist[0].url
+            })
         })
         .catch((err) => {
 			console.log(err)
-			res.json({ err: "Please enter a valid artist" })
+			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
 		})
 })
 
