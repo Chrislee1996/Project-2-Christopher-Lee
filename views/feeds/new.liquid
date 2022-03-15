@@ -3,60 +3,27 @@
 <div class="container-sm">
     <form action="/feed" method="POST">
         <fieldset>
-            <legend>Create New Example</legend>
-            <label class="form-label">Title: </label>
+            <legend>New Music thought</legend>
+            <label class="form-label">Artist: </label>
             <input 
                 type="text" 
                 name="title" 
-                placeholder="enter example title"
+                placeholder="Artist Name"
                 class="form-control"
             >
-            <label class="form-label">Body:</label>
+            <label class="form-label">Song(s):</label>
             <input 
                 type="text" 
                 name="body" 
-                placeholder="enter example body" 
+                placeholder="Song or Songs" 
                 class="form-control"
             >
-            <label class="form-label">Amount:</label>
-            <input 
-                type="number" {% layout 'layout.liquid' %}
-{% block content %}
-<div class="container-md">
-    <article>
-        <h2>
-            {{ feed.title }} -
-            {% if feed.ready %}
-            Ready
-            {% else %}
-            Not Ready
-            {%endif%}
-        </h2>
-        <h3>Amount: {{ feed.amount }}</h3>
-        <h6>Body: {{ feed.body }}</h6>
-        {% if feed.owner == userId %}
-        <div class="btn-group">
-
-            <a href="/feeds/{{ feed.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/feeds/{{ feed.id }}?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-        </div>
-        {% endif %}
-    </article>
-</div>
-{% endblock %}
-                name="amount" 
-                class="form-control"
-            >
-            <label class="form-label">Ready:</label>
-            <input 
-                type="checkbox" 
-                name="ready" 
-                class="form-check-input"
-            >
+            <textarea input 
+            type="text" 
+            name="opinion"
+            placeholder="What's on your mind?"></textarea>
         </fieldset>
-        <input type="submit" value="Create New Example" class="btn btn-success">
+        <input type="submit" value="Post" class="btn btn-success">
     </form>
 </div>
 {% endblock %}
