@@ -122,7 +122,7 @@ router.delete('/:id', (req, res) => {
 	const feedId = req.params.id
 	Feed.findByIdAndRemove(feedId)
 		.then(feed => {
-			res.redirect('/feeds')
+			res.redirect('/feed')
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
