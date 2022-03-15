@@ -36,7 +36,7 @@ router.post('/:feedId', (req, res) => {
         })
         .then(feed => {
             // redirect
-            res.redirect(`/feeds/${feed.id}`)
+            res.redirect(`/feed/${feed.id}`)
         })
         // or show an error if we have one
         .catch(error => {
