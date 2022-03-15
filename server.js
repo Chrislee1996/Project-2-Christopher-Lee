@@ -9,6 +9,7 @@ const UserRouter = require('./controllers/user')
 const ArtistRoute = require('./controllers/similarArtist')
 const AlbumRoute = require('./controllers/topAlbums')
 const SongRoute = require('./controllers/topSongs')
+const FeedRoute = require('./controllers/feed')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -23,12 +24,12 @@ middleware(app)
 ////////////////////
 //    Routes      //
 ////////////////////
-
 app.use('/auth', UserRouter)
 app.use('/profile', ProfileRouter)
 app.use('/similarArtist', ArtistRoute)
 app.use('/topAlbums', AlbumRoute)
 app.use('/topSongs', SongRoute)
+app.use('/feed', FeedRoute)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
