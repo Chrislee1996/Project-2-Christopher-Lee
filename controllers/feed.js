@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
 	Feed.create(req.body)
 		.then(feed => {
 			console.log('this was returned from create', feed)
-			res.redirect('/feeds')
+			res.redirect(`/feed/${feed.id}`)
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -96,7 +96,7 @@ router.put('/:id', (req, res) => {
 
 	Feed.findByIdAndUpdate(feedId, req.body, { new: true })
 		.then(feed => {
-			res.redirect(`/feeds/${feed.id}`)
+			res.redirect(`/feed/${feed.id}`)
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

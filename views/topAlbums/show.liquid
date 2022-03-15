@@ -12,9 +12,9 @@
         <ul> 
             <h5 class="display-1 "> {{albums.name}}:</h5> </br>
             <a href={{albums.url}} target="_blank">
-            <img src = {{albums.image[3]['#text']}}> </a> </br>
-            <a href={{albums.url}} target="_blank">Check it out!</a> </br>
-            # Of Plays: {{albums.playcount}}
+          <img src = {{albums.image[3]['#text']}}> </a> </br>
+            <a href={{albums.url}} target="_blank" class="display-4">Check it out!</a> </br>
+            <div class="display-6">  # Of Plays: {{albums.playcount}} </div>
         </ul>
         {% endfor %}
 

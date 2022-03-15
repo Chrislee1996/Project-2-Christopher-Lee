@@ -4,7 +4,7 @@
     <h2 class="display-6">My feed</h2>
     <div class="row"> 
         {% for feed in feeds %}
-        <div class="card" style="width: 18rem; background-color: rgb(27,27,27);">
+        <div class="card" style="width: 18rem; background-color: rgb(27,27,27); margin: 1px;">
             <h5 class="card-header">{{ feed.artist }}</h5>
             <div class="card-body">
             {% if feed.song.length > 0  %}
