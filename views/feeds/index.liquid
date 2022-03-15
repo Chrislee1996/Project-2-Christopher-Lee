@@ -2,22 +2,31 @@
 {% block content %}
 <div>
     <h2 class="display-6">My feed</h2>
+    <div class="row"> 
         {% for feed in feeds %}
-        <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ feed.title }}</h5>
+        <div class="card" style="width: 18rem; background-color: rgb(27,27,27);">
+            <h5 class="card-header">{{ feed.artist }}</h5>
             <div class="card-body">
+            {% if feed.song.length > 0  %}
                 <p class="card-text">
-                    Body: {{ feed.body }}
+                    Song(s): {{ feed.song }}
                 </p>
+            {% endif %}
+            {% if feed.album.length > 0 %}
                 <p class="card-text">
-                    Amount: {{ feed.amount }}
+                    Album(s): {{ feed.album }}
                 </p>
-                <a href="/feeds/{{ feed.id }}" class="btn btn-info">
-                    View {{ feed.title }}
+            {% endif %}
+                <p class="card-text">
+                    Topic: {{ feed.opinion }}
+                </p>
+                <a href="/feed/{{ feed.id }}" class="btn btn-info">
+                    View discussion
                 </a>
             </div>
         </div>
         {% endfor %}
     </div>
+</div>
 </div>
 {% endblock %}

@@ -15,6 +15,7 @@ const { Schema, model } = mongoose
 const feedsSchema = new Schema({
     artist: {type: String,required:true},
     song: {type: String},
+    album: {type: String},
     opinion: {type: String,required:true },   
     owner: {
         //reference the type objectId
