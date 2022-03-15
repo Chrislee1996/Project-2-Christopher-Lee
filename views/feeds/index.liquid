@@ -12,6 +12,7 @@
                     Song(s): {{ feed.song }}
                 </p>
             {% endif %}
+             <!-- if user leaves album/song empty - it will not show -->
             {% if feed.album.length > 0 %}
                 <p class="card-text">
                     Album(s): {{ feed.album }}

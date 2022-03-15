@@ -82,7 +82,7 @@ router.get('/:id/edit', (req, res) => {
 	const feedId = req.params.id
 	Feed.findById(feedId)
 		.then(feed => {
-			res.render('feed/edit', { feed })
+			res.render('feeds/edit', { feed })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

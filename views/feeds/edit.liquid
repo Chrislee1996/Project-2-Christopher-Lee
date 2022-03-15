@@ -1,58 +1,35 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/feeds" method="POST">
+    <form action="/feed/{{ feed.id }}?_method=PUT" method="POST">
         <fieldset>
-            <legend>Create New Example</legend>
-            <label class="form-label">Title: </label>
+            <legend>Edit Your Music Thought</legend>
+            <label class="form-label">Artist: </label>
             <input 
                 type="text" 
-                name="title" 
-                placeholder="{{ feed.title }}"
-                value="{{ feed.title }}"
+                name="artist" 
+                value="{{feed.artist}}"
                 class="form-control"
             >
-            <label class="form-label">Body:</label>
+            <label class="form-label">Song(s):</label>
             <input 
                 type="text" 
-                name="body" 
-                placeholder="{{ feed.body }}" 
-                value="{{ feed.body }}" 
+                name="song" 
+                value= "{{feed.song}}"
                 class="form-control"
             >
-            <label class="form-label">Amount:</label>
+            <label class="form-label">Album(s):</label>
             <input 
-                type="number" 
-                name="amount"{% layout 'layout.liquid'%}
-{% block content %}
-<div>
-    <h2 class="display-6">All Examples</h2>
-    <div class="row">
-        {% for feed in feeds %}
-        <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ feed.title }}</h5>
-            <div class="card-body">
-                <p class="card-text">
-                    Body: {{ feed.body }}
-                </p>
-                <p class="card-text">
-                    Amount: {{ feed.amount }}
-                </p>
-                <a href="/feeds/{{ feed.id }}" class="btn btn-info">
-                    View {{ feed.title }}
-                </a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endblock %}
-                value="{{ feed.amount }}"
+                type="text" 
+                name="album" 
+                value= "{{feed.album}}"
                 class="form-control"
-            >
-            <label class="form-label">Ready:</label>
+            ></br>
+            <textarea input 
+            type="text" 
+            name="opinion">{{feed.opinion}}</textarea>
         </fieldset>
-        <input type="submit" value="Edit Example" class="btn btn-success">
+        <input type="submit" value="Edit" class="btn btn-success">
     </form>
 </div>
 {% endblock %}
