@@ -107,6 +107,7 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const feedId = req.params.id
 	Feed.findById(feedId)
+    .populate('comments.author')
 		.then(feed => {
             const {username, loggedIn, userId} = req.session
 			res.render('feeds/show', { feed, username, loggedIn, userId })

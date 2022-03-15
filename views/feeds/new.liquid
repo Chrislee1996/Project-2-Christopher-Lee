@@ -1,20 +1,20 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/feed" method="POST">
+    <form action="/feed/" method="POST">
         <fieldset>
             <legend>New Music thought</legend>
             <label class="form-label">Artist: </label>
             <input 
                 type="text" 
-                name="title" 
+                name="artist" 
                 placeholder="Artist Name"
                 class="form-control"
             >
             <label class="form-label">Song(s):</label>
             <input 
                 type="text" 
-                name="body" 
+                name="song" 
                 placeholder="Song or Songs" 
                 class="form-control"
             >
