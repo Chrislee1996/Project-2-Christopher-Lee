@@ -1,0 +1,58 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm">
+    <form action="/feeds" method="POST">
+        <fieldset>
+            <legend>Create New Example</legend>
+            <label class="form-label">Title: </label>
+            <input 
+                type="text" 
+                name="title" 
+                placeholder="{{ feed.title }}"
+                value="{{ feed.title }}"
+                class="form-control"
+            >
+            <label class="form-label">Body:</label>
+            <input 
+                type="text" 
+                name="body" 
+                placeholder="{{ feed.body }}" 
+                value="{{ feed.body }}" 
+                class="form-control"
+            >
+            <label class="form-label">Amount:</label>
+            <input 
+                type="number" 
+                name="amount"{% layout 'layout.liquid'%}
+{% block content %}
+<div>
+    <h2 class="display-6">All Examples</h2>
+    <div class="row">
+        {% for feed in feeds %}
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-header">{{ feed.title }}</h5>
+            <div class="card-body">
+                <p class="card-text">
+                    Body: {{ feed.body }}
+                </p>
+                <p class="card-text">
+                    Amount: {{ feed.amount }}
+                </p>
+                <a href="/feeds/{{ feed.id }}" class="btn btn-info">
+                    View {{ feed.title }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+                value="{{ feed.amount }}"
+                class="form-control"
+            >
+            <label class="form-label">Ready:</label>
+        </fieldset>
+        <input type="submit" value="Edit Example" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}
