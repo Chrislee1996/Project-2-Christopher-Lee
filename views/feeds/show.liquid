@@ -10,27 +10,29 @@
             {% if feed.album.length > 0 %}
                 <h3>Album: {{ feed.album }}</h3>
             {% endif %}
-        <h6>Topic: {{ feed.opinion }}</h6>
+        <h6 class="display-6">Topic: {{ feed.opinion }}</h6>
         {% if feed.owner == userId %}
-
-            <a href="/feed/{{ feed.id }}/edit" class="btn btn-primary";">Edit</a> 
+        <span class="btn-group">
+            <a href="/feed/{{ feed.id }}/edit" class="btn btn-primary";">Edit Post</a> 
+        </span>
+        <span class="btn-group">
             <form action="/feed/{{ feed.id }}?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" class="btn btn-danger">
+                <input type="submit" value="Delete Post" class="btn btn-danger">
             </form>
-
+        </span>
         {% endif %}
     </article></br>
     <!-- Where comments go/populate -->
-    <div class="col-md-6" >
+    <div class="col-md-6">
         <form action="/comments/{{feed.id}}" method="POST">
             <fieldset>
                 <legend>Add Comment</legend>
                 <label class="form-label">Comment: </label>
-                <input type="text" class="form-control" name="note" placeholder="enter comment here...">
+                <textarea input type="text"rows="6"class="form-control" name="note" placeholder="enter comment here..."></textarea>
             </fieldset>
             <input type="submit" class="btn btn-success" value="Add Comment">
         </form>
-    </div>
+    </div> </br>
 
     {% if feed.comments.length > 0 %}
         <!-- here we'll add our comment container -->

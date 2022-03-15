@@ -1,14 +1,14 @@
 {% block content %}
     <div class="card mb-4 shadow">
         <div class="card-body" style="background-color: rgb(27,27,27)">
-            <form action="/comments/delete/{{feed.id}}/{{comment._id}}?_method=DELETE" method="POST">
-                <input type="submit" value="X">
-            </form>
             <p>{{ comment.note }}</p>
             <div class="d-flex justify-content-between">
                 <small>User: {{ comment.author.username }}</small>
                 {% if comment.author == userId %}
                 {% endif %}
+                <form action="/comments/delete/{{feed.id}}/{{comment._id}}?_method=DELETE" method="POST">
+                    <input type="submit" value="Remove comment" class="xbutton">
+                </form>
             </div>
         </div>
     </div>

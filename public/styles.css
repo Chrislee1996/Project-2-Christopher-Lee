@@ -3,3 +3,12 @@ body {
     background-image: url(https://wallpaperaccess.com/full/1155017.jpg);
     background-size: cover;
 }
+
+.xbutton {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+.btn-group{
+    margin-right: 20em;
+}

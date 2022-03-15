@@ -1,0 +1,15 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<body class="text-center">
+    <form action="/profile/" method="POST">
+        <input type="text"  name="favoriteSong"> 
+        <input type="submit" class="btn btn-success">
+        <h1 class="display-3">Results:</h1>
+        {% for favoriteSongs in favoriteSong %}
+        <ul> 
+             <p> <h2>{{favoriteSongs}}</p>
+        </ul>
+        {% endfor %}
+    </form>
+</body>
+{% endblock %}
