@@ -24,10 +24,14 @@ router.use((req, res, next) => {
 //routes
 
 router.get('/', (req,res)=> {
-    res.render('similarArtist/index')
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    res.render('similarArtist/index', { username, loggedIn })
 })
 
 router.post('/', (req,res)=> {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
     const artist = req.body.artist
     const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
@@ -35,7 +39,8 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             console.log(data)
             // console.log('this should output the first artist in the array', data.similarartists.artist[0].name)
-        res.render('similarArtist/show', {
+        res.render('similarArtist/show', { 
+                username, loggedIn,
                 artist: data.similarartists.artist,
             })
         })

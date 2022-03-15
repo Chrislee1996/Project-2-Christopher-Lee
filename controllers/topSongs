@@ -22,10 +22,14 @@ router.use((req, res, next) => {
 
 //routes
 router.get('/', (req,res)=> {
-    res.render('topSongs/index')
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    res.render('topSongs/index' , {username,loggedIn})
 })
 
 router.post('/', (req,res)=> {
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
     const song = req.body.song
     const url = `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${song}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
@@ -33,6 +37,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log('this should output the 1st song in the array',data.toptracks.track[0])
         res.render('topSongs/show', {
+				username, loggedIn,
                 songs: data.toptracks.track
             })
         })
