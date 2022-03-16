@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 		// then render a template AFTER they're found
 		.then((profiles) => {
             const userId = req.session.userId
-            console.log(userId,'this  is your user Id')
+            // console.log(userId,'this  is your user Id')
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			res.render('profiles/index', { profiles, username, loggedIn, userId })
@@ -48,11 +48,11 @@ router.get('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const profileId = req.params.id
+    // console.log(profileId,'this is your profile Id')
 	// find the profile
 	Profile.findById(profileId)
 		// -->render if there is a profile
 		.then((profile) => {
-			console.log('edit profile', profile)
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			res.render('profiles/edit', { profile, username, loggedIn })
@@ -67,35 +67,17 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const profileId = req.params.id
+    console.log(userId,'this  is your user Id')
 	// tell mongoose to update our profile
 	Profile.findByIdAndUpdate(profileId, req.body, { new: true })
 		// if successful -> redirect to the profile page
 		.then((profile) => {
-			res.redirect(`/profiles/${profile.id}`)
+			res.redirect(`/profiles/`)
 		})
 		// if an error, display that
 		.catch((error) => res.json(error))
 })
 
-router.get('/:id', (req, res) => {
-	// first, we need to get the id
-	const profileId = req.params.id
-	// then we can find a profile by its id
-	Profile.findById(profileId)
-		.populate('comments.author')
-		// once found, we can render a view with the data
-		.then((profile) => {
-			console.log('the profile we got\n', profile)
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
-			const userId = req.session.userId
-			res.render('profiles/index', { profile, username, loggedIn, userId })
-		})
-		.catch((err) => {
-			console.log(err)
-			res.json({ err })
-		})
-})
 
 
 //loads users favorite artist

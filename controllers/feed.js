@@ -104,6 +104,23 @@ router.put('/:id', (req, res) => {
 		})
 })
 
+
+
+//like button
+router.put('/:id/feed', (req, res)=> {
+    const feedId = req.params.id
+    Feed.findByIdAndUpdate( feedId, {$inc: {rating:1}}, {new:true})
+    .then(feed=> {
+        console.log('the feed like has increased by 1', feed)
+        res.redirect(`/feed/${feed.id}`)
+    })
+    .catch(error => {
+        console.log(error)
+        res.json({error})
+    })
+})
+
+
 // show route
 router.get('/:id', (req, res) => {
 	const feedId = req.params.id

@@ -16,12 +16,19 @@
             <a href="/feed/{{ feed.id }}/edit" class="btn btn-primary";">Edit Post</a> 
         </span>
         <span class="btn-group">
-            {{feed.rating}}
             <form action="/feed/{{ feed.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Post" class="btn btn-danger">
             </form>
         </span>
         {% endif %}
+        
+
+        <h4> Likes : {{feed.rating}} </h4> 
+        <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
+        <button type ="submit" class="btn-lg btn-success" onclick="disabled">Like Post</button>
+        </form>
+
+
     </article></br>
     <!-- Where comments go/populate -->
     <div class="col-md-6">
