@@ -8,7 +8,10 @@
     <h1 class="display-3">Results:</h1>
     {% for favoriteAlbums in favoriteAlbum %}
     <ul> 
-         <p> <h2> {{favoriteAlbums['@attr'].rank}}.{{favoriteAlbums.name}} </h2> Play Count: {{favoriteAlbums.playcount}}  </p>
+        <p> <h2> {{favoriteAlbums['@attr'].rank}}.{{favoriteAlbums.name}} by {{favoriteAlbums.artist.name}} </h2> 
+       <a href={{favoriteAlbums.url}} target="_blank"><img src = {{favoriteAlbums.image[3]['#text']}}></a> </br>
+        Play Count: {{favoriteAlbums.playcount}}  </p>
+
     </ul>
     {% endfor %}
 </form> </br> 

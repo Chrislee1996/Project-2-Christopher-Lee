@@ -9,7 +9,7 @@
         {% for favoriteArtists in favoriteArtist %}
         <ul> 
             <p> <h2> {{favoriteArtists['@attr'].rank}}.{{favoriteArtists.name}} </h2> Play Count: {{favoriteArtists.playcount}}  </p>
-            <a href= {{favoriteArtists.url}} class="display-6">Check them out!</a>
+            <a href= {{favoriteArtists.url}} target='_blank' class="display-6">Check them out!</a>
         </ul>
         {% endfor %}
         
