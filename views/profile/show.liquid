@@ -7,8 +7,7 @@
 
 <div class="container">
     <form method ="POST"> 
-        <input type="checkbox" class="btn-check" id="btn-check-2" checked autocomplete="off">
-        <button name="user" class="btn btn-success" for="btn-check-2">{{username | capitalize}} top Tracks</button>
+    <a href="/profile" class="btn btn-success" for="btn-check-2">Hide</a>
     {% for users in user %}
     <ul> 
         <p> <h2> {{users['@attr'].rank}}.{{users.name}} by {{users.artist.name}} </h2> Play Count: {{users.playcount}}  </p>

@@ -22,7 +22,7 @@ const feedsSchema = new Schema({
         type: Schema.Types.ObjectID,
         //references the model: 'User'
         ref:'User'
-        //now thatwe have an owner field, lets look and replace references to the username in our fruit controllers
+        //now thatwe have an owner field, lets look and replace references to the username in our feed controllers
     },
     comments:[commentSchema]
 },{ timestamps: true })

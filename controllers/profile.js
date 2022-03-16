@@ -49,5 +49,26 @@ router.post('/', (req,res)=> {
 		})
 })
 
+
+router.post('/', (req,res)=> {
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	const user2 = username
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${user2}&api_key=${process.env.APIKEY}&format=json`
+    fetch(url)
+        .then((response)=> response.json())
+        .then((data)=> {
+            console.log('this should output the first artist in the array', data)
+        res.render('profile/show', { 
+				username, loggedIn,
+				user2: data.topartists.artist
+            })
+        })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
+		})
+})
+
 // Export the Router
 module.exports = router
