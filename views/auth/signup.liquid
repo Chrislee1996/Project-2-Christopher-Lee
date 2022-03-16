@@ -3,7 +3,10 @@
 
 <div class="container-sm">
     <form action="/auth/signup" method="POST">
-        <fieldset>
+        <fieldset class='container'>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12"></div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
             <legend>Sign Up Here!</legend>
             <label class="form-label">Username: </label>
             <input type="text" name="username" placeholder="username" class="form-control" required>
@@ -11,9 +14,11 @@
             <input type="password" name="password" placeholder="enter password" class="form-control" required>
             <label class="form-label">E-mail: </label>
             <input type="email" name="email" placeholder="E-mail Address" class="form-control" required>
+            <input type="submit" value="Create Account" class="btn btn-success">
         </fieldset>
-        <input type="submit" value="Create Account" class="btn btn-success">
     </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

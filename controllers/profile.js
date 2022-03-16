@@ -50,9 +50,11 @@ router.get('/:id/edit', (req, res) => {
 	const profileId = req.params.id
     // console.log(profileId,'this is your profile Id')
 	// find the profile
+    console.log('this is the profileid', profileId)
 	Profile.findById(profileId)
 		// -->render if there is a profile
 		.then((profile) => {
+            console.log(profile,'this is the profile')
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			res.render('profiles/edit', { profile, username, loggedIn })
@@ -67,17 +69,39 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const profileId = req.params.id
-    console.log(userId,'this  is your user Id')
+    // console.log(userId,'this  is your user Id')
 	// tell mongoose to update our profile
 	Profile.findByIdAndUpdate(profileId, req.body, { new: true })
 		// if successful -> redirect to the profile page
 		.then((profile) => {
+            console.log(profile, 'this is the profile on 77')
 			res.redirect(`/profiles/`)
 		})
 		// if an error, display that
 		.catch((error) => res.json(error))
 })
 
+
+// show route
+router.get('/:id', (req, res) => {
+	// first, we need to get the id
+	const profileId = req.params.id
+	// then we can find a fruit by its id
+	Fruit.findById(profileId)
+		// once found, we can render a view with the data
+		.then((profile) => {
+			console.log('the profile we got\n', profile)
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+			const userId = req.session.userId
+			res.render('profiles/show', { profile, username, loggedIn, userId })
+		})
+		// if there is an error, show that instead
+		.catch((err) => {
+			console.log(err)
+			res.json({ err })
+		})
+})
 
 
 //loads users favorite artist

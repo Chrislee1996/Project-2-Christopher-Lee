@@ -17,7 +17,7 @@ const feedsSchema = new Schema({
     song: {type: String},
     album: {type: String},
     opinion: {type: String,required:true },
-    rating: {type: Number, min:1, max:1, required:true}, 
+    rating: {type: Number, required:true}, 
     owner: {
         //reference the type objectId
         type: Schema.Types.ObjectID,

@@ -11,7 +11,6 @@ const { Schema, model } = mongoose
 const profileSchema = new Schema(
 	{
 		aboutme: {type: String},
-		picture: {type:String},
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',

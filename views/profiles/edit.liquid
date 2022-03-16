@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-sm">
-    <form action="/profiles/{{userId }}?_method=PUT" method="POST">
+    <form action="/profiles/{{profile._id}}?_method=PUT" method="POST">
         <fieldset>
             <legend>Edit Your Profile</legend>
             <label class="form-label">About me: </label>
