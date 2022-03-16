@@ -29,7 +29,7 @@ middleware(app)
 //    Routes      //
 ////////////////////
 app.use('/auth', UserRouter)
-app.use('/profile', ProfileRouter)
+app.use('/profiles', ProfileRouter)
 app.use('/similarArtist', ArtistRoute)
 app.use('/topAlbums', AlbumRoute)
 app.use('/topSongs', SongRoute)

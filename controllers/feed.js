@@ -79,10 +79,11 @@ router.post('/', (req, res) => {
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
+    const { username, userId, loggedIn } = req.session
 	const feedId = req.params.id
 	Feed.findById(feedId)
 		.then(feed => {
-			res.render('feeds/edit', { feed })
+			res.render('feeds/edit', { feed, username, loggedIn, })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)

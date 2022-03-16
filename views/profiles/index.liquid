@@ -1,0 +1,19 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
+    <h3> Profile </h6>
+    <h2> {{username | capitalize}}</h4>
+        {{profile.picture}}
+        <a href ="/profiles/{{profile.id}}/edit" >Edit Profile</a>
+       <p>About me:</p> {{profile.aboutme}}
+</div>
+<div class="container">
+    <form method ="POST"> 
+        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+        <button name="user" class="btn btn-outline-info" for="btn-check-outlined">{{username | capitalize}} Top Tracks</button>
+</div>
+
+
+{% endblock %}
+
+
