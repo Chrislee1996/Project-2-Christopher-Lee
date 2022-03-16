@@ -1,12 +1,11 @@
+// Import Dependencies
 const express = require('express')
 const fetch = require('node-fetch')
 
-
-
-//create router
+// Create router
 const router = express.Router()
 
-
+// Router Middleware
 // Authorization middleware
 // If you have some resources that should be accessible to everyone regardless of loggedIn status, this middleware can be moved, commented out, or deleted. 
 router.use((req, res, next) => {
@@ -20,35 +19,34 @@ router.use((req, res, next) => {
 	}
 })
 
-
-//routes
-
-router.get('/', (req,res)=> {
+// Routes
+// index page
+router.get('/', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
-    res.render('similarArtist/index', { username, loggedIn })
+			res.render('favoriteSong/index', { username, loggedIn })
 })
 
+
 router.post('/', (req,res)=> {
-    const username = req.session.username
-    const loggedIn = req.session.loggedIn
-    const artist = req.body.artist
-    const url = `https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=${artist}&api_key=${process.env.APIKEY}&format=json`
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	const favoriteTrack = req.body.favoriteTrack 
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${favoriteTrack}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
-            // console.log(data)
-            // console.log('this should output the first artist in the array', data.similarartists.artist[0].name)
-        res.render('similarArtist/show', { 
-                username, loggedIn,
-                artist: data.similarartists.artist,
+            // console.log('this should output the first song in the array', data)
+        res.render('favoriteSong/show', { 
+				username, loggedIn,
+				favoriteTrack: data.toptracks.track
             })
         })
         .catch((err) => {
 			console.log(err)
-			res.json({ err: "Please enter a valid artist remember spaces and spell matter!" })
+			res.json({ err: "Please enter a valid song remember spaces and spell matter!" })
 		})
 })
 
 
-module.exports=router
+module.exports = router

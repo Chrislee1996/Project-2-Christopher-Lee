@@ -1,0 +1,23 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+    <body class="text-center">
+        <form action="/favoriteTrack/" method ="POST">
+            <input type="text"  name="favoriteSong"> 
+            <input type="submit" class="btn btn-success">
+
+        <h1 class="display-3">Results:</h1>
+        {% for favoriteTracks in favoriteTrack %}
+        <ul> 
+            <p> <h2> {{favoriteTracks['@attr'].rank}}.{{favoriteTracks.name}} </h2> Play Count: {{favoriteTracks.playcount}}  </p>
+            <a href= {{favoriteTracks.url}} class="display-6">Check it out!</a>
+        </ul>
+        {% endfor %}
+        
+    </form> </br> 
+
+</body>
+
+
+ 
+
+{% endblock %}

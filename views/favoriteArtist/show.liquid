@@ -1,21 +1,23 @@
-
 {% layout 'layout.liquid'%}
-
 {% block content %}
     <body class="text-center">
-        <form action="/profile/" method ="POST">
+        <form action="/favoriteArtist/" method ="POST">
             <input type="text"  name="favoriteArtist"> 
             <input type="submit" class="btn btn-success">
 
         <h1 class="display-3">Results:</h1>
-
         {% for favoriteArtists in favoriteArtist %}
         <ul> 
-             <p> <h2> {{favoriteArtists['@attr'].rank}}.{{favoriteArtists.name}} </h2> Play Count: {{favoriteArtists.playcount}}  </p>
+            <p> <h2> {{favoriteArtists['@attr'].rank}}.{{favoriteArtists.name}} </h2> Play Count: {{favoriteArtists.playcount}}  </p>
+            <a href= {{favoriteArtists.url}} class="display-6">Check them out!</a>
         </ul>
         {% endfor %}
+        
+    </form> </br> 
 
-    </form> </br>
-    
 </body>
+
+
+ 
+
 {% endblock %}

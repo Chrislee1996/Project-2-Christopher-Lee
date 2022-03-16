@@ -1,9 +1,9 @@
 {% block content %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand">Find your Music</a>
+        <a href="/" class="navbar-brand">MusicalBook</a>
         {% if loggedIn %}
-        <a href="/profile" class="nav-link text-light">Go to profile</a>
+        <a href="/profile" class="nav-link text-light">Profile</a>
         {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,6 +16,9 @@
                 <a href="/topAlbums/" class="nav-link text-light">Top albums of an Artist</a>
                 <a href="/topSongs/" class="nav-link text-light">Top Songs of an Artist</a>
                 <a href="/feed/new" class="nav-link text-light">Post a Topic</a>
+                <a href="/favoriteAlbum/" class="nav-link text-light">Album</a>
+                <a href="/favoriteArtist/" class="nav-link text-light">Artist</a>
+                <a href="/favoriteSong/" class="nav-link text-light">Song</a>
                 <a href="/auth/logout" class="nav-link text-light">Log Out</a>
 
             {% else %} 

@@ -2,6 +2,7 @@
 const express = require('express')
 const Profile = require('../models/profile')
 
+
 // Create router
 const router = express.Router()
 
@@ -19,22 +20,12 @@ router.use((req, res, next) => {
 	}
 })
 
-// Routes
 
-// index page
-router.get('/', (req, res) => {
-	Profile.find({})
-		.then(profiles => {
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
-			
-			res.render('profiles/index', { profiles, username, loggedIn })
-		})
-		.catch(error => {
-			res.redirect(`/error?error=${error}`)
-		})
+router.get('/', (req,res)=> {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    res.render('Hello')
 })
-
 
 
 // Export the Router

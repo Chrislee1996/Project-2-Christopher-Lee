@@ -1,0 +1,16 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+    <body class="text-center">
+    <form action="/favoriteAlbum/" method ="POST">
+        <input type="text"  name="favoriteAlbum"> 
+        <input type="submit" class="btn btn-success">
+
+    <h1 class="display-3">Results:</h1>
+    {% for favoriteAlbums in favoriteAlbum %}
+    <ul> 
+         <p> <h2> {{favoriteAlbums['@attr'].rank}}.{{favoriteAlbums.name}} </h2> Play Count: {{favoriteAlbums.playcount}}  </p>
+    </ul>
+    {% endfor %}
+</form> </br> 
+</body>
+{% endblock %}
