@@ -43,20 +43,6 @@ router.get('/', (req, res) => {
 		})
 })
 
-// update route
-router.put('/:id', (req, res) => {
-	const profileId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
-
-	Feed.findByIdAndUpdate(profileId, req.body, { new: true })
-		.then(feed => {
-			res.redirect(`/feed/${profile.id}`)
-		})
-		.catch((error) => {
-			res.redirect(`/error?error=${error}`)
-		})
-})
-
 
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
