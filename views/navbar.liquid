@@ -1,7 +1,7 @@
 {% block content %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
-        <a href="/" class="navbar-brand"> <img src="musicLogo.png" style="border-radius: 50%; width: 50px;"> </a>
+        <a href="/" class="navbar-brand"> Home </a>
         {% if loggedIn %}
         <a href="/profile" class="nav-link text-light">Profile</a>
         {% endif %}
@@ -16,11 +16,17 @@
                 <a href="/topAlbums/" class="nav-link text-light">Top albums of an Artist</a>
                 <a href="/topSongs/" class="nav-link text-light">Top Songs of an Artist</a>
                 <a href="/feed/new" class="nav-link text-light">Post a Topic</a>
-                <a href="/favoriteAlbum/" class="nav-link text-light">Album</a>
-                <a href="/favoriteArtist/" class="nav-link text-light">Artist</a>
-                <a href="/favoriteSong/" class="nav-link text-light">Song</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Stalk a Friend
+                    </a>
+                    <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                      <li><a href="/favoriteAlbum/" class="nav-link text-light">Album</a></li>
+                      <li><a href="/favoriteArtist/" class="nav-link text-light">Artist</a></li>
+                      <li><a href="/favoriteSong/" class="nav-link text-light">Song</a></li>
+                    </ul>
+                </div>
                 <a href="/auth/logout" class="nav-link text-light">Log Out</a>
-
             {% else %} 
                 <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
                 <a href="/auth/login" class="nav-link text-light">Sign In</a>

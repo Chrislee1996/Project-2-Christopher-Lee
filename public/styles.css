@@ -13,3 +13,8 @@ body {
 .btn-group{
     margin-right: 20em;
 }
+
+.navbar-brand{
+    border-radius: 50%; 
+    width: 50px;
+}
