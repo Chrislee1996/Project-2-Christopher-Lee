@@ -10,7 +10,9 @@ const { Schema, model } = mongoose
 
 const profileSchema = new Schema(
 	{
-		name: { type: String, required: true },
+		favoriteAlbums: { type: String, required: true },
+		favoriteSongs: {type: String, required: true },
+		favoriteArtist: {type: String, required: true },
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',
