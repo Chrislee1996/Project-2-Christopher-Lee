@@ -1,0 +1,23 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
+    <h3> Profile </h6>
+    <h2> {{username | capitalize}}</h4>
+</div>
+
+<div class="container">
+    <form method ="POST"> 
+        <input type="checkbox" class="btn-check" id="btn-check-2" checked autocomplete="off">
+        <button name="user" class="btn btn-success" for="btn-check-2">{{username | capitalize}} top Tracks</button>
+    {% for users in user %}
+    <ul> 
+        <p> <h2> {{users['@attr'].rank}}.{{users.name}} by {{users.artist.name}} </h2> Play Count: {{users.playcount}}  </p>
+        <a href= {{users.url}} target='_blank' class="display-6">Check it out!</a>
+    </ul>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+
+

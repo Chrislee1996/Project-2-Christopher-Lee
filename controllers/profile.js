@@ -1,6 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Profile = require('../models/profile')
+const fetch = require('node-fetch')
 
 
 // Create router
@@ -27,6 +28,26 @@ router.get('/', (req,res)=> {
     res.render('profile', {username, loggedIn})
 })
 
+router.post('/', (req,res)=> {
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	const user  = username
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${user}&api_key=${process.env.APIKEY}&format=json`
+    fetch(url)
+        .then((response)=> response.json())
+        .then((data)=> {
+            // console.log('this is your user',user)
+            // console.log('this should output the first song in the array', data)
+        res.render('profile/show', { 
+				username, loggedIn,
+				user: data.toptracks.track
+            })
+        })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid song remember spaces and spell matter!" })
+		})
+})
 
 // Export the Router
 module.exports = router
