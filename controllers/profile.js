@@ -22,11 +22,7 @@ router.use((req, res, next) => {
 })
 
 
-router.get('/', (req,res)=> {
-    const username = req.session.username
-    const loggedIn = req.session.loggedIn
-    res.render('profiles', {username, loggedIn})
-})
+
 
 // index ALL profile route
 router.get('/', (req, res) => {
@@ -34,9 +30,11 @@ router.get('/', (req, res) => {
 	Profile.find({})
 		// then render a template AFTER they're found
 		.then((profiles) => {
+            const userId = req.session.userId
+            console.log(userId,'this  is your user Id')
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('profiles/index', { profiles, username, loggedIn })
+			res.render('profiles/index', { profiles, username, loggedIn, userId })
 		})
 		// show an error if there is one
 		.catch((error) => {
@@ -93,11 +91,10 @@ router.put('/:id', (req, res) => {
 		.catch((error) => res.json(error))
 })
 
-// show route
 router.get('/:id', (req, res) => {
 	// first, we need to get the id
 	const profileId = req.params.id
-	// then we can find a fruit by its id
+	// then we can find a profile by its id
 	Profile.findById(profileId)
 		.populate('comments.author')
 		// once found, we can render a view with the data
@@ -108,7 +105,6 @@ router.get('/:id', (req, res) => {
 			const userId = req.session.userId
 			res.render('profiles/index', { profile, username, loggedIn, userId })
 		})
-		// if there is an error, show that instead
 		.catch((err) => {
 			console.log(err)
 			res.json({ err })

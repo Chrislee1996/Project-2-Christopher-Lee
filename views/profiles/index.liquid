@@ -4,8 +4,9 @@
     <h3> Profile </h6>
     <h2> {{username | capitalize}}</h4>
         {{profile.picture}}
-        <a href ="/profiles/{{profile.id}}/edit" >Edit Profile</a>
+        <a href ="/profiles/{{userId}}/edit" >Edit Profile</a>
        <p>About me:</p> {{profile.aboutme}}
+
 </div>
 <div class="container">
     <form method ="POST"> 

@@ -1,7 +1,16 @@
-{% layout 'layout.liquid'%}
+{% layout 'layout.liquid' %}
 {% block content %}
-<h1>test</h1>
-
+<div class="container-sm">
+    <form action="/profiles/{{ profile.id }}?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Edit Your Profile</legend>
+            <label class="form-label">About me: </label>
+            <textarea
+                    type="text" 
+                    name="aboutme" 
+                    placeholder= 'Tell us about your musical taste'
+                    class="form-control"></textarea>
+        <input type="submit" value="Update About me" class="btn btn-success">
+    </form>
+</div>
 {% endblock %}
-
-
