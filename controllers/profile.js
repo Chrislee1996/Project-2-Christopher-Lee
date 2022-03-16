@@ -24,7 +24,7 @@ router.use((req, res, next) => {
 router.get('/', (req,res)=> {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
-    res.render('Hello')
+    res.render('profile', {username, loggedIn})
 })
 
 
