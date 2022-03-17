@@ -6,13 +6,15 @@
         <p>{{profile.id}} </p>
 </div>
 
-<div class="container">
+<div class="container text-center">
     <form method ="POST"> 
-    <a href="/profiles" class="btn btn-outline-success" for="btn-check-2">Hide</a>
+    <a href="/profiles" class="btn btn-outline-light" for="btn-check-2">Hide</a>
     {% for users in user %}
     <ul> 
-        <p> <h2> {{users['@attr'].rank}}.{{users.name}} by {{users.artist.name}} </h2> Play Count: {{users.playcount}}  </p>
-        <a href= {{users.url}} target='_blank' class="display-6">Check it out!</a>
+        <p> <h2> {{users['@attr'].rank}}.{{users.name}} by {{users.artist.name}} </h2> 
+       <a href={{users.url}} target="_blank"><img src = {{users.image[3]['#text']}}></a> </br>
+        Play Count: {{users.playcount}}  </p>
+
     </ul>
     {% endfor %}
 </div>

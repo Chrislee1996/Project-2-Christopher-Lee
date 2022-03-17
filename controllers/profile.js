@@ -109,7 +109,7 @@ router.post('/', (req,res)=> {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
 	const user  = username
-    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${user}&api_key=${process.env.APIKEY}&format=json`
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${user}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
@@ -117,7 +117,7 @@ router.post('/', (req,res)=> {
             // console.log('this should output the first song in the array', data)
         res.render('profiles/show', { 
 				username, loggedIn,
-				user: data.toptracks.track
+				user: data.topalbums.album
             })
         })
         .catch((err) => {
@@ -125,7 +125,6 @@ router.post('/', (req,res)=> {
 			res.json({ err: "Please enter a valid song remember spaces and spell matter!" })
 		})
 })
-
 
 
 // Export the Router
