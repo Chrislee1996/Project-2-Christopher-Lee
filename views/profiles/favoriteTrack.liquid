@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container; text-center"> 
 
-
+    <a href="/profiles/favoriteArtist" class="btn btn-outline-light" for="btn-check-2"> Next </a> 
     <div class="container text-center">
         <form method ="POST"> 
             {% for userFavoriteTracks in userFavoriteTrack %}
@@ -13,13 +13,16 @@
             {% endfor %}
     </div>
 
-    <div class="container text-center">
+
+    <div class="container text-center"></br>
         <form action="/profiles/favoriteTrack" method ="POST"> 
             <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
             <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined"> Reveal Favorite Tracks </button>
-    </div>
+    </div> 
 
-    <a href="/profiles/favoriteArtist" class="btn btn-outline-light" for="btn-check-2"> Next </a>
+
+
+
 </div>
 
 
