@@ -15,7 +15,7 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectID,
         ref: 'User', 
         required: true
-    }
+    },
 },{
     timestamps: true
 })

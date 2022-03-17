@@ -4,7 +4,6 @@
     <h2 class="display-6">My Feed</h2>
     <div class=""> 
         {% for feed in feeds %}
-        {{ comment.author.username }}
         <div class="card" style="background-color: rgb(27,27,27); margin: 1px;">
             <h6> Likes: {{feed.rating}}</h6>
             <h5 class="card-header">{{ feed.artist }}</h5> 

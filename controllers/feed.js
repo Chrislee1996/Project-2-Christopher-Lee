@@ -120,19 +120,6 @@ router.put('/:id/feed', (req, res)=> {
     })
 })
 
-//dislikelike button
-router.put('/:id/feed', (req, res)=> {
-    const feedId = req.params.id
-    Feed.findByIdAndUpdate( feedId, {$inc: {rating: -1}}, {new:true})
-    .then(feed=> {
-        console.log('the feed decreased has increased by 1', feed)
-        res.redirect(`/feed/${feed.id}`)
-    })
-    .catch(error => {
-        console.log(error)
-        res.json({error})
-    })
-})
 
 
 // show route

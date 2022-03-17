@@ -4,11 +4,6 @@
     <h3> Profile </h6>
     <h2> {{username | capitalize}}</h4>
   
-        <a href ="/profiles/{{userId}}/edit" >Edit Profile</a>
-        {% for profile in profiles %}
-        {{profile.picture}}
-       <p>About me:</p> {{profile.aboutme}}
-       {% endfor %}
 
 </div>
 <div class="container">
@@ -19,5 +14,4 @@
 
 
 {% endblock %}
-
 
