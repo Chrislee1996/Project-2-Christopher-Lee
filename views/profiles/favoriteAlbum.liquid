@@ -1,9 +1,7 @@
 {% layout 'layout.liquid'%}
 {% block content %}
-<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
-    <h3> Profile </h6>
-    <h2> {{username | capitalize}}</h4>
-        <p>{{profile.id}} </p>
+<div class="container; text-center"> 
+    <h5> Favorite Albums </h5>
 </div>
 
 <div class="container text-center">
@@ -11,8 +9,8 @@
     <a href="/profiles/favoriteTrack" class="btn btn-outline-light" for="btn-check-2">Favorite Tracks</a>
     {% for userFavoriteAlbums in userFavoriteAlbum %}
     <ul> 
-        <p> <h2> {{userFavoriteAlbums['@attr'].rank}}.{{userFavoriteAlbums.name}} by {{userFavoriteAlbums.artist.name}} </h2> 
-       <a href={{userFavoriteAlbums.url}} target="_blank"><img src = {{userFavoriteAlbums.image[3]['#text']}}></a> </br>
+        <p> <h5> {{userFavoriteAlbums['@attr'].rank}}.{{userFavoriteAlbums.name}} by {{userFavoriteAlbums.artist.name}} </h5> 
+       <a href={{userFavoriteAlbums.url}} target="_blank"><img src = {{userFavoriteAlbums.image[2]['#text']}}></a> </br>
         Play Count: {{userFavoriteAlbums.playcount}}  </p>
 
     </ul>

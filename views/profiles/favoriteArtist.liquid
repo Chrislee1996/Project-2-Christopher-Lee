@@ -1,27 +1,23 @@
 {% layout 'layout.liquid'%}
 {% block content %}
-<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
-    <h3> Profile </h6>
-    <h2> {{username | capitalize}}</h4>
-        <p>{{profile.id}} </p>
-</div>
+<div class="container; text-center"> 
+    
+    <div class="container text-center">
+        <form method ="POST"> 
+            <a href="/profiles" class="btn btn-outline-light" for="btn-check-2">Go Home</a>
+            {% for userFavoriteArtists in userFavoriteArtist %}
+            <ul> 
+                <p> <h2> {{userFavoriteArtists['@attr'].rank}}.{{userFavoriteArtists.name}} </h2> Play Count: {{userFavoriteArtists.playcount}}  </p>
+                <a href= {{userFavoriteArtists.url}} target='_blank' class="display-6">Check them out!</a>
+            </ul>
+            {% endfor %}
+    </div>
 
-
-<div class="container text-center">
-    <form method ="POST"> 
-        <a href="/profiles" class="btn btn-outline-light" for="btn-check-2">Go Home</a>
-        {% for userFavoriteArtists in userFavoriteArtist %}
-        <ul> 
-            <p> <h2> {{userFavoriteArtists['@attr'].rank}}.{{userFavoriteArtists.name}} </h2> Play Count: {{userFavoriteArtists.playcount}}  </p>
-            <a href= {{userFavoriteArtists.url}} target='_blank' class="display-6">Check them out!</a>
-        </ul>
-        {% endfor %}
-</div>
-
-<div class="container text-center">
-    <form action="/profiles/favoriteArtist" method ="POST"> 
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined"> Reveal </button>
+    <div class="container text-center">
+        <form action="/profiles/favoriteArtist" method ="POST"> 
+            <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+            <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined"> Reveal </button>
+    </div>
 </div>
 
 {% endblock %}
