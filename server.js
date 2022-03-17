@@ -14,6 +14,7 @@ const CommentRoute = require('./controllers/comment')
 const FavoriteArtistRoute  = require('./controllers/favoriteArtist')
 const FavoriteAlbumRoute  = require('./controllers/favoriteAlbum')
 const FavoriteSongRoute  = require('./controllers/favoriteSong')
+const ReviewRoute = require('./controllers/review')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -38,6 +39,7 @@ app.use('/comments', CommentRoute)
 app.use('/favoriteArtist', FavoriteArtistRoute)
 app.use('/favoriteAlbum', FavoriteAlbumRoute)
 app.use('/favoriteSong', FavoriteSongRoute)
+app.use('/reviews',ReviewRoute)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session

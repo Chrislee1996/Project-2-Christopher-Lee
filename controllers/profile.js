@@ -29,10 +29,10 @@ router.get('/', (req, res) => {
 	Profile.find({})
 		// then render a template AFTER they're found
 		.then((profiles) => {
-            const userId = req.session.userId
+            let userId = req.session.userId
             // console.log(userId,'this  is your user Id')
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
+			let username = req.session.username
+			let loggedIn = req.session.loggedIn
 			res.render('profiles/index', { profiles, username, loggedIn, userId })
 		})
 		// show an error if there is one
@@ -42,16 +42,16 @@ router.get('/', (req, res) => {
 		})
 })
 
-
-router.get('/', (req, res) => {
+//creates users favroite album index 
+router.get('/favoriteAlbum', (req, res) => {
 	// find the profile
 	Profile.find({})
 		// then render a template AFTER they're found
 		.then((profiles) => {
-            const userId = req.session.userId
+            let userId = req.session.userId
             // console.log(userId,'this  is your user Id')
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
+			let username = req.session.username
+			let loggedIn = req.session.loggedIn
 	res.render('profiles/favoriteAlbum',{ profiles, username, loggedIn, userId })
 })
 // show an error if there is one
@@ -63,14 +63,14 @@ router.get('/', (req, res) => {
 
 //loads users favorite album
 router.post('/favoriteAlbum', (req,res)=> {
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
-	const userFavoriteAlbum  = username
-    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${userFavoriteAlbum}&api_key=${process.env.APIKEY}&format=json`
+	let username = req.session.username
+	let loggedIn = req.session.loggedIn
+	let userFavoriteAlbum  = username
+    let url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${userFavoriteAlbum}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
-            // console.log('this is your user',user)
+            // console.log('you are hitting your album route')
             // console.log('this should output the first song in the array', data)
         res.render(`profiles/favoriteAlbum`, { 
 				username, loggedIn,
@@ -83,15 +83,19 @@ router.post('/favoriteAlbum', (req,res)=> {
 		})
 })
 
-router.get('/', (req, res) => {
+
+
+//creates users favroite track index 
+router.get('/favoriteTrack', (req, res) => {
 	// find the profile
 	Profile.find({})
-		// then render a template AFTER they're found
+		// then render a template AFTE	R they're found
 		.then((profiles) => {
-            const userId = req.session.userId
+			console.log('you are hitting your track route')
+            let userId = req.session.userId
             // console.log(userId,'this  is your user Id')
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
+			let username = req.session.username
+			let loggedIn = req.session.loggedIn
 	res.render('profiles/favoriteTrack',{ profiles, username, loggedIn, userId })
 })
 // show an error if there is one
@@ -103,11 +107,11 @@ router.get('/', (req, res) => {
 
 // loads users favorite tracks 
 router.post('/favoriteTrack', (req,res)=> {
-	const profileId = req.params.id
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
-	const userFavoriteTrack  = username
-    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteTrack}&api_key=${process.env.APIKEY}&format=json`
+	let profileId = req.params.id
+	let username = req.session.username
+	let loggedIn = req.session.loggedIn
+	let userFavoriteTrack  = username
+    let url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteTrack}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
@@ -125,16 +129,16 @@ router.post('/favoriteTrack', (req,res)=> {
 })
 
 
-
-router.get('/', (req, res) => {
+//creates users favroite artist index 
+router.get('/favoriteArtist', (req, res) => {
 	// find the profile
 	Profile.find({})
 		// then render a template AFTER they're found
 		.then((profiles) => {
-            const userId = req.session.userId
+            let userId = req.session.userId
             // console.log(userId,'this  is your user Id')
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
+			let username = req.session.username
+			let loggedIn = req.session.loggedIn
 	res.render('profiles/favoriteArtist',{ profiles, username, loggedIn, userId })
 })
 // show an error if there is one
@@ -145,12 +149,12 @@ router.get('/', (req, res) => {
 })
 
 // //loads users favorite artist
-router.post('/', (req,res)=> {
-	const profileId = req.params.id
-	const username = req.session.username
-	const loggedIn = req.session.loggedIn
-	const userFavoriteArtist = username
-    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteArtist}&api_key=${process.env.APIKEY}&format=json`
+router.post('/favoriteArtist', (req,res)=> {
+	let profileId = req.params.id
+	let username = req.session.username
+	let loggedIn = req.session.loggedIn
+	let userFavoriteArtist = username
+    let url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteArtist}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {

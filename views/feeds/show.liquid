@@ -26,12 +26,9 @@
 
     <!-- This is where the like button is displayed -->
     <h5> Likes:{{feed.rating }} </h5>
-    {% if user.rating > 1 %}
         You already liked this post
-    {% elsif user.rating %}
         <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
         <button type ="submit" class="btn btn-outline-success" >Like Post</button>
-    {% endif %}
     </form> 
 
 <!-- {% if userId < 0  %} -->

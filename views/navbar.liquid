@@ -10,10 +10,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             {% if loggedIn %}
+            <a href="/reviews/" class="nav-link text-light">Album Reviews</a>
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Community
+              </a>
+                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                 <a href="/feed/" class="nav-link text-light">Feed</a>
                 <a href="/feed/mine/" class="nav-link text-light">My Post</a>
                 <a href="/feed/new" class="nav-link text-light">Post a Topic</a>
-
+              </ul>
+            </div>
 
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,6 +32,17 @@
                       <li><a href="/topSongs/" class="nav-link text-light">Top Songs of an Artist</a></li>
                     </ul>
                 </div>
+
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Charts
+                  </a>
+                  <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <li><a href="/similarArtist/" class="nav-link text-light">Top Artists</a></li>
+                    <li><a href="/topAlbums/" class="nav-link text-light">Top Songs</a></li>
+                  </ul>
+              </div>
+
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Stalk a Friend
@@ -35,6 +53,7 @@
                       <li><a href="/favoriteSong/" class="nav-link text-light">Song</a></li>
                     </ul>
                 </div>
+
                 Signed in as {{username}}
                 <a href="/auth/logout" class="nav-link text-light">Log Out</a>
             {% else %} 

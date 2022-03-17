@@ -6,11 +6,12 @@
         <p>{{profile.id}} </p>
 </div>
 
-
 <div class="container text-center">
     <form method ="POST"> 
+        <a href="/profiles" class="btn btn-outline-light" for="btn-check-2">Hide</a>
         {% for userFavoriteArtists in userFavoriteArtist %}
         <ul> 
+            
             <p> <h2> {{userFavoriteArtist['@attr'].rank}}.{{userFavoriteArtist.name}} </h2> Play Count: {{userFavoriteArtist.playcount}}  </p>
             <a href= {{userFavoriteArtist.url}} target='_blank' class="display-6">Check them out!</a>
         </ul>
