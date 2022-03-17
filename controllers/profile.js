@@ -91,7 +91,7 @@ router.get('/favoriteTrack', (req, res) => {
 	Profile.find({})
 		// then render a template AFTE	R they're found
 		.then((profiles) => {
-			console.log('you are hitting your track route')
+			// console.log('you are hitting your track route')
             let userId = req.session.userId
             // console.log(userId,'this  is your user Id')
 			let username = req.session.username
@@ -154,7 +154,7 @@ router.post('/favoriteArtist', (req,res)=> {
 	let username = req.session.username
 	let loggedIn = req.session.loggedIn
 	let userFavoriteArtist = username
-    let url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteArtist}&api_key=${process.env.APIKEY}&format=json`
+    let url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userFavoriteArtist}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
