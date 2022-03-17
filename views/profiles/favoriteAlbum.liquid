@@ -1,0 +1,24 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
+    <h3> Profile </h6>
+    <h2> {{username | capitalize}}</h4>
+        <p>{{profile.id}} </p>
+</div>
+
+<div class="container text-center">
+    <form method ="POST"> 
+    <a href="/profiles" class="btn btn-outline-light" for="btn-check-2">Hide</a>
+    {% for userFavoriteAlbums in userFavoriteAlbum %}
+    <ul> 
+        <p> <h2> {{userFavoriteAlbums['@attr'].rank}}.{{userFavoriteAlbums.name}} by {{userFavoriteAlbums.artist.name}} </h2> 
+       <a href={{userFavoriteAlbums.url}} target="_blank"><img src = {{userFavoriteAlbums.image[3]['#text']}}></a> </br>
+        Play Count: {{userFavoriteAlbums.playcount}}  </p>
+
+    </ul>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

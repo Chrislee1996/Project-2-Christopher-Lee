@@ -7,19 +7,19 @@
 
 </div>
 <div class="container text-center">
-    <form method ="POST"> 
+    <form action="/profiles/favoriteAlbum" method ="POST"> 
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
         <button name="userFavoriteAlbum " class="btn btn-outline-info" style="margin-bottom: 10px;" for="btn-check-outlined">{{username | capitalize}} Top Albums</button>
 </div>
 
 <div class="container text-center">
-    <form method ="POST"> 
+    <form action="/profiles/favoriteArtist" method ="POST"> 
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
         <button name="userFavoriteTrack " class="btn btn-outline-info" style="margin-bottom: 10px;" for="btn-check-outlined">{{username | capitalize}} Top Tracks</button>
 </div>
 
 <div class="container text-center">
-    <form method ="POST"> 
+    <form action="/profiles/favoriteTrack" method ="POST"> 
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
         <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined">{{username | capitalize}} Top Artist</button>
 </div>

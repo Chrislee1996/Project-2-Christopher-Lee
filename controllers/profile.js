@@ -23,7 +23,6 @@ router.use((req, res, next) => {
 
 
 
-
 // index ALL profile route
 router.get('/', (req, res) => {
 	// find the profile
@@ -44,10 +43,26 @@ router.get('/', (req, res) => {
 })
 
 
-
+router.get('/', (req, res) => {
+	// find the profile
+	Profile.find({})
+		// then render a template AFTER they're found
+		.then((profiles) => {
+            const userId = req.session.userId
+            // console.log(userId,'this  is your user Id')
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+	res.render('profiles/favoriteAlbum',{ profiles, username, loggedIn, userId })
+})
+// show an error if there is one
+		.catch((error) => {
+			console.log(error)
+			res.json({ error })
+		})
+})
 
 //loads users favorite album
-router.post('/', (req,res)=> {
+router.post('/favoriteAlbum', (req,res)=> {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
 	const userFavoriteAlbum  = username
@@ -57,7 +72,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log('this is your user',user)
             // console.log('this should output the first song in the array', data)
-        res.render(`profiles/show`, { 
+        res.render(`profiles/favoriteAlbum`, { 
 				username, loggedIn,
 				userFavoriteAlbum: data.topalbums.album
             })
@@ -68,10 +83,26 @@ router.post('/', (req,res)=> {
 		})
 })
 
-
+router.get('/', (req, res) => {
+	// find the profile
+	Profile.find({})
+		// then render a template AFTER they're found
+		.then((profiles) => {
+            const userId = req.session.userId
+            // console.log(userId,'this  is your user Id')
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+	res.render('profiles/favoriteTrack',{ profiles, username, loggedIn, userId })
+})
+// show an error if there is one
+		.catch((error) => {
+			console.log(error)
+			res.json({ error })
+		})
+})
 
 // loads users favorite tracks 
-router.post('/favoriteTrackShow', (req,res)=> {
+router.post('/favoriteTrack', (req,res)=> {
 	const profileId = req.params.id
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
@@ -82,7 +113,7 @@ router.post('/favoriteTrackShow', (req,res)=> {
         .then((data)=> {
             // console.log('this is your user',user)
             // console.log('this should output the first song in the array', data)
-        res.render('profiles/favoriteTrackShow', { 
+        res.render('profiles/favoriteTrack', { 
 				username, loggedIn,
 				userFavoriteTrack: data.toptracks.track
             })
@@ -93,7 +124,27 @@ router.post('/favoriteTrackShow', (req,res)=> {
 		})
 })
 
-//loads users favorite artist
+
+
+router.get('/', (req, res) => {
+	// find the profile
+	Profile.find({})
+		// then render a template AFTER they're found
+		.then((profiles) => {
+            const userId = req.session.userId
+            // console.log(userId,'this  is your user Id')
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+	res.render('profiles/favoriteArtist',{ profiles, username, loggedIn, userId })
+})
+// show an error if there is one
+		.catch((error) => {
+			console.log(error)
+			res.json({ error })
+		})
+})
+
+// //loads users favorite artist
 router.post('/', (req,res)=> {
 	const profileId = req.params.id
 	const username = req.session.username
@@ -105,7 +156,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log('this is your user',user)
             // console.log('this should output the first song in the array', data)
-        res.render('profiles/show', { 
+        res.render('profiles/favoriteArtist', { 
 				username, loggedIn,
 				userFavoriteArtist: data.topartists.artist
             })
