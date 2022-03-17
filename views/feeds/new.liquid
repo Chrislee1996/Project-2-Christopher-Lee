@@ -4,7 +4,16 @@
     <form action="/feed/" method="POST">
         <fieldset>
             <legend>New Music Thought</legend>
-            <label class="form-label">Artist: </label>
+
+            <label class="form-label"> Topic </label>
+            <input 
+                type="text" 
+                name="topic" 
+                placeholder="Topic"
+                class="form-control bg-dark text-white"
+            >
+
+            <label class="form-label">Artist(s) -Optional: </label>
             <input 
                 type="text" 
                 name="artist" 
@@ -25,6 +34,15 @@
                 placeholder="album(s)" 
                 class="form-control  bg-dark text-white"
             ></br>
+
+            <label class="form-label">Rating(1-10) if applicable:</label>
+            <input 
+                type="number" 
+                name="personalRating" 
+                placeholder="" 
+                class="form-control  bg-dark text-white"
+            ></br>
+
             <textarea input 
             type="text" 
             rows="6"

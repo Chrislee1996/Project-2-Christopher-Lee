@@ -4,10 +4,13 @@
     <h2 class="display-6">My Feed</h2>
     <div class=""> 
         {% for feed in feeds %}
-        <div class="card" style="background-color: rgb(27,27,27); margin: 1px;;">
+        <div class="card" style="background-color: rgb(27,27,27); margin: 10px;;">
             <h6> Likes: {{feed.rating}}</h6>
-            <h5 class="card-header">{{ feed.artist }}</h5> 
+             <a href="/feed/{{ feed.id }}"> {{feed.topic}}  </a>    
             <div class="card-body">
+            {% if feed.artist.length > 0 %}   
+                Artist: {{ feed.artist }}
+            {% endif %}
             {% if feed.song.length > 0  %}
                 <p class="card-text">
                     Song(s): {{ feed.song }}
@@ -20,11 +23,11 @@
                 </p>
             {% endif %}
                 <p class="card-text">
-                    Topic: {{ feed.opinion }}
+                    {{ feed.opinion }}
+                    <!-- <a href="/feed/{{ feed.id }}" class="btn btn-outline-info" > -->
+                        <!-- View discussion -->
+                    <!-- </a> </br>  -->
                 </p>
-                <a href="/feed/{{ feed.id }}" class="btn btn-outline-info">
-                    View discussion
-                </a> </br> 
             </div>
         </div>
         {% endfor %}

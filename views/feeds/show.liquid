@@ -3,14 +3,18 @@
 <div class="container-md">
     <!-- This is where the discussion stuff are -->
     <article>
-        <h3>Artist: {{ feed.artist }}</h3>
-        <!-- if user leaves album/song empty - it will not show -->
+            <h3>{{feed.topic }}</h3>
+        <!-- if user leaves artist/album/song empty - it will not show -->
+            {% if feed.artist.length > 0 %}   
+                <h3>Artist: {{ feed.artist }}</h3>
+            {% endif %}
             {% if feed.song.length > 0 %}
                 <h3>Song: {{ feed.song }}</h3>
             {% endif %}
             {% if feed.album.length > 0 %}
                 <h3>Album: {{ feed.album }}</h3>
             {% endif %}
+           <p> Score: {{feed.personalRating}} </p> 
         <h6 class="display-6">Topic: {{ feed.opinion }}</h6>
         {% if feed.owner == userId %}
         <span class="btn-group" >
@@ -26,7 +30,6 @@
 
     <!-- This is where the like button is displayed -->
     <h5> Likes:{{feed.rating }} </h5>
-        You already liked this post
         <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
         <button type ="submit" class="btn btn-outline-success" >Like Post</button>
     </form> 

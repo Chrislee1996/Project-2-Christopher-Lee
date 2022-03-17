@@ -13,10 +13,12 @@ const { Schema, model } = mongoose
 
 //feeds schema
 const feedsSchema = new Schema({
-    artist: {type: String,required:true},
+    topic: {type:String, required:true},
+    artist: {type: String},
     song: {type: String},
     album: {type: String},
     opinion: {type: String,required:true },
+    personalRating: {type: Number, min:0, max:10},
     rating: {type: Number, required:true}, 
     owner: {
         //reference the type objectId
