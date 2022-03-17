@@ -9,28 +9,30 @@
                 type="text" 
                 name="artist" 
                 placeholder="Artist Name"
-                class="form-control"
+                class="form-control bg-dark text-white"
             >
             <label class="form-label">Song(s)-Optional:</label>
             <input 
                 type="text" 
                 name="song" 
                 placeholder="Song or Songs" 
-                class="form-control"
+                class="form-control  bg-dark text-white"
             >
             <label class="form-label">Album(s)-Optional:</label>
             <input 
                 type="text" 
                 name="album" 
                 placeholder="album(s)" 
-                class="form-control"
+                class="form-control  bg-dark text-white"
             ></br>
             <textarea input 
             type="text" 
             rows="6"
             cols="100"
             name="opinion"
+            class="bg-dark text-white"
             placeholder="What's on your mind?"></textarea> </br>
+            
             <p>
                 <input
                     type="hidden"
@@ -40,7 +42,7 @@
                 >
             </p>
         </fieldset>
-        <input type="submit" value="Post" class="btn btn-success">
+        <input type="submit" value="Post" class="btn btn-outline-success">
     </form>
 </div>
 {% endblock %}

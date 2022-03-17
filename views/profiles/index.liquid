@@ -3,14 +3,25 @@
 <div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
     <h3> Profile </h6>
     <h2> {{username | capitalize}}</h4>
-        {{user.profile}}
   
 
 </div>
 <div class="container text-center">
     <form method ="POST"> 
         <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <button name="user" class="btn btn-outline-info" for="btn-check-outlined">{{username | capitalize}} Top Albums</button>
+        <button name="userFavoriteAlbum " class="btn btn-outline-info" style="margin-bottom: 10px;" for="btn-check-outlined">{{username | capitalize}} Top Albums</button>
+</div>
+
+<div class="container text-center">
+    <form method ="POST"> 
+        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+        <button name="userFavoriteTrack " class="btn btn-outline-info" style="margin-bottom: 10px;" for="btn-check-outlined">{{username | capitalize}} Top Tracks</button>
+</div>
+
+<div class="container text-center">
+    <form method ="POST"> 
+        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+        <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined">{{username | capitalize}} Top Artist</button>
 </div>
 
 

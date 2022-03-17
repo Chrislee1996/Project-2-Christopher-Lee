@@ -1,6 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-md">
+    <!-- This is where the discussion stuff are -->
     <article>
         <h3>Artist: {{ feed.artist }}</h3>
         <!-- if user leaves album/song empty - it will not show -->
@@ -13,29 +14,32 @@
         <h6 class="display-6">Topic: {{ feed.opinion }}</h6>
         {% if feed.owner == userId %}
         <span class="btn-group" >
-            <a href="/feed/{{ feed.id }}/edit" class="btn btn-primary";">Edit Post</a> 
+            <a href="/feed/{{ feed.id }}/edit" class="btn btn-outline-primary";">Edit Post</a> 
         </span>
         <span class="btn-group">
             <form action="/feed/{{ feed.id }}?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Post" class="btn btn-danger">
+                <input type="submit" value="Delete Post" class="btn btn-outline-danger">
             </form>
         </span>
         {% endif %}</br>
-
-        <h5> Likes:{{feed.rating}} </h5>
-        <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
-        <button type ="submit" class="btn-lg btn-success" >Like Post</button>
-        </form>
     </article></br>
+
+    <!-- This is where the like button is displayed -->
+    <h5> Likes:{{feed.rating}} </h5>
+    <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
+        <button type ="submit" class="btn btn-outline-success" >Like Post</button>
+        </form> </br>
+
+
     <!-- Where comments go/populate -->
     <div class="col-md-6">
         <form action="/comments/{{feed.id}}" method="POST">
             <fieldset>
                 <legend>Add Comment</legend>
                 <label class="form-label">Comment: </label>
-                <textarea input type="text"rows="6"class="form-control" name="note" placeholder="enter comment here..." required></textarea>
+                <textarea input type="text"rows="6"class="form-control bg-dark text-white" name="note" placeholder="enter comment here..." required></textarea>
             </fieldset>
-            <input type="submit" class="btn btn-success" value="Add Comment">
+            <input type="submit" class="btn btn-outline-info" value="Add Comment">
         </form>
     </div> </br>
 

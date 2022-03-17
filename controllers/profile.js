@@ -44,72 +44,36 @@ router.get('/', (req, res) => {
 })
 
 
-// edit route -> GET that takes us to the edit form view
-router.get('/:id/edit', (req, res) => {
-	// we need to get the id
-	const profileId = req.params.id
-    // console.log(profileId,'this is your profile Id')
-	// find the profile
-    console.log('this is the profileid', profileId)
-	Profile.findById(profileId)
-		// -->render if there is a profile
-		.then((profile) => {
-            console.log(profile,'this is the profile')
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
-			res.render('profiles/edit', { profile, username, loggedIn })
-		})
-		.catch((err) => {
-			console.log(err)
-			res.json(err)
-		})
-})
 
-// update route -> sends a put request to our database
-router.put('/:id', (req, res) => {
-	// get the id
-	const profileId = req.params.id
-    // console.log(userId,'this  is your user Id')
-	// tell mongoose to update our profile
-	Profile.findByIdAndUpdate(profileId, req.body, { new: true })
-		// if successful -> redirect to the profile page
-		.then((profile) => {
-            console.log(profile, 'this is the profile on 77')
-			res.redirect(`/profiles/`)
-		})
-		// if an error, display that
-		.catch((error) => res.json(error))
-})
-
-
-// show route
-router.get('/:id', (req, res) => {
-	// first, we need to get the id
-	const profileId = req.params.id
-	// then we can find a fruit by its id
-	Fruit.findById(profileId)
-		// once found, we can render a view with the data
-		.then((profile) => {
-			console.log('the profile we got\n', profile)
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
-			const userId = req.session.userId
-			res.render('profiles/show', { profile, username, loggedIn, userId })
-		})
-		// if there is an error, show that instead
-		.catch((err) => {
-			console.log(err)
-			res.json({ err })
-		})
-})
-
-
-//loads users favorite artist
+//loads users favorite album
 router.post('/', (req,res)=> {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
-	const user  = username
-    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${user}&api_key=${process.env.APIKEY}&format=json`
+	const userFavoriteAlbum  = username
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${userFavoriteAlbum}&api_key=${process.env.APIKEY}&format=json`
+    fetch(url)
+        .then((response)=> response.json())
+        .then((data)=> {
+            // console.log('this is your user',user)
+            // console.log('this should output the first song in the array', data)
+        res.render(`profiles/show`, { 
+				username, loggedIn,
+				userFavoriteAlbum: data.topalbums.album
+            })
+        })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid song remember spaces and spell matter!" })
+		})
+})
+
+// loads users favorite tracks 
+router.post('/', (req,res)=> {
+	const profileId = req.params.id
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	const userFavoriteTrack  = username
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteTrack}&api_key=${process.env.APIKEY}&format=json`
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
@@ -117,7 +81,30 @@ router.post('/', (req,res)=> {
             // console.log('this should output the first song in the array', data)
         res.render('profiles/show', { 
 				username, loggedIn,
-				user: data.topalbums.album
+				userFavoriteTrack: data.toptracks.track
+            })
+        })
+        .catch((err) => {
+			console.log(err)
+			res.json({ err: "Please enter a valid song remember spaces and spell matter!" })
+		})
+})
+
+//loads users favorite artist
+router.post('/', (req,res)=> {
+	const profileId = req.params.id
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	const userFavoriteArtist = username
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${userFavoriteArtist}&api_key=${process.env.APIKEY}&format=json`
+    fetch(url)
+        .then((response)=> response.json())
+        .then((data)=> {
+            // console.log('this is your user',user)
+            // console.log('this should output the first song in the array', data)
+        res.render('profiles/show', { 
+				username, loggedIn,
+				userFavoriteArtist: data.topartists.artist
             })
         })
         .catch((err) => {
