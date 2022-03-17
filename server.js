@@ -14,6 +14,7 @@ const CommentRoute = require('./controllers/comment')
 const FavoriteArtistRoute  = require('./controllers/favoriteArtist')
 const FavoriteAlbumRoute  = require('./controllers/favoriteAlbum')
 const FavoriteSongRoute  = require('./controllers/favoriteSong')
+const HomeRoute = require('./controllers/home')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -38,11 +39,12 @@ app.use('/comments', CommentRoute)
 app.use('/favoriteArtist', FavoriteArtistRoute)
 app.use('/favoriteAlbum', FavoriteAlbumRoute)
 app.use('/favoriteSong', FavoriteSongRoute)
+app.use('/', HomeRoute)
 
-app.get('/', (req, res) => {
-    const { username, userId, loggedIn } = req.session
-	res.render('index.liquid', { loggedIn, username, userId })
-})
+// app.get('/', (req, res) => {
+//     const { username, userId, loggedIn } = req.session
+// 	res.render('index.liquid', { loggedIn, username, userId })
+// })
 
 app.get('/error', (req, res) => {
 	const error = req.query.error || 'This Page Does Not Exist'

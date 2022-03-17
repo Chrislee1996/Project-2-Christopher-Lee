@@ -5,7 +5,6 @@
 
     <div class="container text-center">
         <form method ="POST"> 
-            <a href="/profiles/favoriteArtist" class="btn btn-outline-light" for="btn-check-2"> Next </a>
             {% for userFavoriteTracks in userFavoriteTrack %}
             <ul> 
                 <p> <h4> {{userFavoriteTracks['@attr'].rank}}.{{userFavoriteTracks.name}} by {{userFavoriteTracks.artist.name}} </h4> Play Count: {{userFavoriteTracks.playcount}}  </p>
@@ -20,6 +19,7 @@
             <button name="userFavoriteArtist" class="btn btn-outline-info" for="btn-check-outlined"> Reveal Favorite Tracks </button>
     </div>
 
+    <a href="/profiles/favoriteArtist" class="btn btn-outline-light" for="btn-check-2"> Next </a>
 </div>
 
 
