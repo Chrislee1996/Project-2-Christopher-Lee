@@ -26,10 +26,18 @@
 
     <!-- This is where the like button is displayed -->
     <h5> Likes:{{feed.rating}} </h5>
-    <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
+    {% if feed.rating %}
+        You already liked this post
+    {% elsif feed.rating %}
+        <form action ="/feed/{{ feed._id }}/feed?_method=PUT" method="POST">
         <button type ="submit" class="btn btn-outline-success" >Like Post</button>
-        </form> </br>
+    {% endif %}
+    </form> 
 
+<!-- {% if userId < 0  %} -->
+    <!-- {% elsif %}
+    You already liked this post
+    {% endif %} -->
 
     <!-- Where comments go/populate -->
     <div class="col-md-6">

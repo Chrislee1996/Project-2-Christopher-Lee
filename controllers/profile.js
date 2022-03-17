@@ -45,6 +45,7 @@ router.get('/', (req, res) => {
 
 
 
+
 //loads users favorite album
 router.post('/', (req,res)=> {
 	const username = req.session.username
@@ -67,8 +68,10 @@ router.post('/', (req,res)=> {
 		})
 })
 
+
+
 // loads users favorite tracks 
-router.post('/', (req,res)=> {
+router.post('/favoriteTrackShow', (req,res)=> {
 	const profileId = req.params.id
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
@@ -79,7 +82,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log('this is your user',user)
             // console.log('this should output the first song in the array', data)
-        res.render('profiles/show', { 
+        res.render('profiles/favoriteTrackShow', { 
 				username, loggedIn,
 				userFavoriteTrack: data.toptracks.track
             })
