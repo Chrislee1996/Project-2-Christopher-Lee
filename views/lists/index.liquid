@@ -7,15 +7,30 @@
         <a href="/lists/new" class="nav-link text-light text-center btn btn-outline-info">Add something new</a>
         <div class="row">
             {% for list in lists %}
-                <div class="card bg-dark" style="width: 18rem;">
+                <div class="card bg-dark" style="width: 18rem; margin: 2px;">
                     <!-- card header -> name of fruit -->
                     <!-- card body -> ready to eat as title, color as text-->
                     <a href="/lists/{{ list.id }}"><h5 class="card-header">{{list.artist}}</h5></a>
                     <div class="card-body">
                         <p class="card-text"> 
-                            {{list.album}}</br>
-                            {{list.song}}</br>
-                           <a href="{{list.link}}">Link</a> 
+
+
+                            {% if list.rating > 0 %}
+                                Score: {{list.rating}}</br>
+                            {% endif %}
+                            
+                            {% if list.album.length > 0 %}
+                                Album:{{list.album}} </br>
+                            {% endif %}
+
+                            {% if list.song.length > 0 %}
+                                Song:{{list.song}}</br>
+                            {% endif %}
+
+                            {% if list.link.length > 0 %}
+                                <a href=" {{list.link}}" target="_blank"> Link </a>
+                            {% endif %}
+                       
                         </p>
                     </div>
                 </div>
