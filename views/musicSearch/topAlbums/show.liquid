@@ -10,11 +10,11 @@
         <!-- {{album.name}} -->
         {% for albums in album %}
         <hr> 
-            <h5 class="display-4 "> {{albums.name}}:</h5> </br>
+            <h5> {{albums.name}}:</h5> </br>
             <a href={{albums.url}} target="_blank">
           <img src = {{albums.image[2]['#text']}}> </a> </br>
-            <a href={{albums.url}} target="_blank" class="display-4">Check {{albums.name}} out!</a> </br>
-            <div class="display-6">  # Of Plays: {{albums.playcount}} </div>
+            <a href={{albums.url}} target="_blank"> <h6>Check {{albums.name}} out! </h6></a> </br>
+            <div><h6> # Of Plays: {{albums.playcount}} </h6>  </div>
         </hr>
         {% endfor %}
 

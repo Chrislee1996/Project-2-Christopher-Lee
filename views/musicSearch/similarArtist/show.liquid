@@ -2,7 +2,7 @@
 
 {% block content %}
     <body class="text-center">
-        <form action="similarArtist/" method ="POST">
+        <form action="/similarArtist/" method ="POST">
             <input type="text"  name="artist" placeholder= 'Enter an Artist'/> 
             <input type="submit" class="btn btn-success">
         </form> </br>
@@ -11,7 +11,7 @@
         <hr> 
            <h5> {{artists.name}}   </h5>
             Likihood of likeness: {{artists.match}} </br>
-           <a href={{artists.url}} target="_blank">Check {{artists.name}} out</a>
+           <a href={{artists.url}} target="_blank">Check {{artists.name}} out </a>
         </hr>
         {% endfor %}
 
