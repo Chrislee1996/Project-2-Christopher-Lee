@@ -21,12 +21,15 @@ router.use((req, res, next) => {
 })
 
 //routes
+
+//This will render our index page 
 router.get('/', (req,res)=> {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
-    res.render('topAlbums/index' ,{username,loggedIn})
+    res.render('musicSearch/topAlbums/index' ,{username,loggedIn})
 })
 
+//This route will fetch our API and post 
 router.post('/', (req,res)=> {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
@@ -37,7 +40,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log('this should output the 1st album in the array',data.topalbums.album[0])
 			// console.log('should link the image of the album', data.topalbums.album[0].image[0])
-        res.render('topAlbums/show', {
+        res.render('musicSearch/topAlbums/show', {
 				username, loggedIn,
                 album: data.topalbums.album
             })

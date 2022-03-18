@@ -24,10 +24,10 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
-			res.render('favoriteArtist/index', { username, loggedIn })
+			res.render('usersFavoriteMusic/favoriteArtist/index', { username, loggedIn })
 })
 
-
+//this will fetch and post the results from our API
 router.post('/', (req,res)=> {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
@@ -36,8 +36,8 @@ router.post('/', (req,res)=> {
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
-            console.log('this should output the first artist in the array', data)
-        res.render('favoriteArtist/show', { 
+            // console.log('this should output the first artist in the array', data)
+        res.render('usersFavoriteMusic/favoriteArtist/show', { 
 				username, loggedIn,
 				favoriteArtist: data.topartists.artist
             })

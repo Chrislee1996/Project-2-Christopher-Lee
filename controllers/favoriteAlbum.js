@@ -22,13 +22,14 @@ router.use((req, res, next) => {
 
 
 // Routes
-// index page
+// this will create our index page 
 router.get('/', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('favoriteAlbum/index', {username, loggedIn })
+			res.render('usersFavoriteMusic/favoriteAlbum/index', {username, loggedIn })
 })
 
+//this will fetch and post the results from our API
 router.post('/', (req,res)=> {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
@@ -38,7 +39,7 @@ router.post('/', (req,res)=> {
         .then((response)=> response.json())
         .then((data)=> {
             // console.log('this should output the first album in the array', data.topalbums.album[0])
-        res.render('favoriteAlbum/show', { 
+        res.render('usersFavoriteMusic/favoriteAlbum/show', { 
 				username, loggedIn,
 				favoriteAlbum: data.topalbums.album
             })

@@ -51,7 +51,7 @@ router.get('/artistCharts', (req,res)=> {
     fetch(url)
         .then((response)=> response.json())
         .then((data)=> {
-            console.log(data.artists.artist,'charts data')
+            // console.log(data.artists.artist,'charts data')
         res.render('homepage/artistCharts', {
 				username, loggedIn,
 				topartists: data.artists.artist

@@ -61,7 +61,7 @@ router.get('/favoriteAlbum', (req, res) => {
 		})
 })
 
-//loads users favorite album
+//loads users favorite album per the API
 router.post('/favoriteAlbum', (req,res)=> {
 	let username = req.session.username
 	let loggedIn = req.session.loggedIn
@@ -85,7 +85,7 @@ router.post('/favoriteAlbum', (req,res)=> {
 
 
 
-//creates users favroite track index 
+//creates/renders users favroite track index page
 router.get('/favoriteTrack', (req, res) => {
 	// find the profile
 	Profile.find({})
@@ -105,7 +105,7 @@ router.get('/favoriteTrack', (req, res) => {
 		})
 })
 
-// loads users favorite tracks 
+// loads users favorite tracks via API
 router.post('/favoriteTrack', (req,res)=> {
 	let profileId = req.params.id
 	let username = req.session.username
@@ -129,7 +129,7 @@ router.post('/favoriteTrack', (req,res)=> {
 })
 
 
-//creates users favroite artist index 
+//creates users favroite artist index page
 router.get('/favoriteArtist', (req, res) => {
 	// find the profile
 	Profile.find({})
@@ -148,7 +148,7 @@ router.get('/favoriteArtist', (req, res) => {
 		})
 })
 
-// //loads users favorite artist
+// //loads users favorite artist via the API
 router.post('/favoriteArtist', (req,res)=> {
 	let profileId = req.params.id
 	let username = req.session.username

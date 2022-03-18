@@ -26,7 +26,7 @@ router.use((req, res, next) => {
 router.get('/', (req,res)=> {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
-    res.render('similarArtist/index', { username, loggedIn })
+    res.render('musicSearch/similarArtist/index', { username, loggedIn })
 })
 
 router.post('/', (req,res)=> {
@@ -39,7 +39,7 @@ router.post('/', (req,res)=> {
         .then((data)=> {
             // console.log(data)
             // console.log('this should output the first artist in the array', data.similarartists.artist[0].name)
-        res.render('similarArtist/show', { 
+        res.render('musicSearch/similarArtist/show', { 
                 username, loggedIn,
                 artist: data.similarartists.artist,
             })

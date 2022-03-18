@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
 	req.body.owner = req.session.userId
 	Feed.create(req.body)
 		.then(feed => {
-			console.log('this was returned from create', feed)
+			// console.log('this was returned from create', feed)
 			res.redirect(`/feed/mine`)
 		})
 		.catch(error => {
@@ -111,7 +111,7 @@ router.put('/:id/feed', (req, res)=> {
     const feedId = req.params.id
     Feed.findByIdAndUpdate( feedId, {$inc: {rating:1}}, {new:true})
     .then(feed=> {
-        console.log('the feed like has increased by 1', feed)
+        // console.log('the feed like has increased by 1', feed)
         res.redirect(`/feed/${feed.id}`)
     })
     .catch(error => {

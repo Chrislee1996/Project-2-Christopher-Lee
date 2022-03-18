@@ -20,12 +20,12 @@ const router = express.Router()
 // POST -> to create a comment
 router.post('/:feedId', (req, res) => {
     const feedId = req.params.feedId
-    console.log('first comment body', req.body)
+    // console.log('first comment body', req.body)
     
     // we'll adjust req.body to include an author
     // the author's id will be the logged in user's id
     req.body.author = req.session.userId
-    console.log('updated comment body', req.body)
+    // console.log('updated comment body', req.body)
     // we'll find the feed with the feedId
     Feed.findById(feedId)
         .then(feed => {
