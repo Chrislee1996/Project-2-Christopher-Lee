@@ -1,0 +1,21 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
+    <h3> Profile </h6>
+    <h2> {{username | capitalize}}</h4>
+        
+        {% for profile in profiles %}
+        <a href="/profiles/{{ userId }}">{{profile.bio}} View Profile </a>
+       About me: {{profile.bio}}
+        {% endfor %}
+    <a href="/profiles/new">Add to Profile</a></br>
+    <a href="/profiles/{{ userId }}/edit">Edit Profile</a>
+    <form action="/profiles/{{ userId }}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Bio" class="btn btn-danger">
+    </form>
+</div>
+
+
+
+{% endblock %}
+

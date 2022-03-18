@@ -1,10 +1,15 @@
 {% layout 'layout.liquid'%}
 {% block content %}
-
-
 <div class="container; text-center" style="border: rgb(58, 54, 54) 2px solid;"> 
     <h3> Profile </h6>
     <h2> {{username | capitalize}}</h4>
+        
+    {% for profile in profiles %}
+    <a href="/profiles/{{ userId }}">{{profile.bio}} </br> Update Profile </a>
+   About me: {{profile.bio}}
+    {% endfor %}
+
+
 </div>
 
 

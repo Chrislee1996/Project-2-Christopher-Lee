@@ -10,6 +10,7 @@ const { Schema, model } = mongoose
 
 const profileSchema = new Schema(
 	{
+		bio: {type:String},
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',

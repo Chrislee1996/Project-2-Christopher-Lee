@@ -1,0 +1,16 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm text-center">
+    <form action="/profiles/{{ userId }}?_method=PUT" method="POST">
+        <h4> Edit Profile</h4>
+        <label class="form-label">Edit About me:</label>
+        <textarea input 
+            type="text" 
+            name="bio"
+            class="form-control"
+            value="{{ profile.bio }}"
+        ></textarea>
+    <input type="submit" class="btn btn-outline-info" value="Edit Profile">
+</div>
+</form>
+{% endblock %}

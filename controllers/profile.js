@@ -42,6 +42,61 @@ router.get('/', (req, res) => {
 		})
 })
 
+
+// new route -> GET route that renders our new page with the form
+router.get('/new', (req, res) => {
+	const username = req.session.username
+	const loggedIn = req.session.loggedIn
+	res.render('profiles/new', { username, loggedIn })
+})
+
+// Create Route -> POST route that actually calls the db and makes a new document via from the above route 
+router.post('/', (req, res) => {
+	req.body.owner = req.session.userId
+	Profile.create(req.body)
+		.then((profile) => {
+			res.redirect('/profiles')
+		})
+		.catch((err) => {
+			console.log(err)
+			res.json({ err })
+		})
+})
+
+// edit route -> GET that takes us to the edit form view
+router.get('/:id/edit', (req, res) => {
+	let userId = req.session.userId
+	Profile.findById(userId)
+		.then((profile) => {
+			// console.log(userId, 'this is your userId via editing route')
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+			res.render('profiles/edit', { profile,userId, username, loggedIn })
+		})
+		.catch((err) => {
+			console.log(err)
+			res.json(err)
+		})
+})
+
+
+//update route - sending the new updated edited item
+router.put('/:id', (req, res)=>{
+	let userId = req.session.userId
+    Profile.findByIdAndUpdate(userId, req.body, {new:true})
+        .then(profile=> {
+			// console.log(userId, 'this is your userId via updating route')
+            res.redirect(`/profiles/`)
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({error})
+        })
+})
+
+
+
+
 //creates users favroite album index 
 router.get('/favoriteAlbum', (req, res) => {
 	// find the profile
@@ -171,6 +226,37 @@ router.post('/favoriteArtist', (req,res)=> {
 		})
 })
 
+// show route
+router.get('/:id', (req, res) => {
+	let userId = req.session.userId
+	Profile.findById(userId)
+		.then((profile) => {
+			const username = req.session.username
+			const loggedIn = req.session.loggedIn
+			const userId = req.session.userId
+			res.render('profiles/show', { profile, username, loggedIn, userId })
+		})
+		// if there is an error, show that instead
+		.catch((err) => {
+			console.log(err)
+			res.json({ err })
+		})
+})
+
+
+// delete route
+router.delete('/:id', (req, res) => {
+	let userId = req.session.userId
+	Profile.findByIdAndRemove(userId)
+		.then((profile) => {
+			console.log('you are deleting this',userId)
+			res.redirect('/profiles')
+		})
+		.catch((error) => {
+			console.log(error)
+			res.json({ error })
+		})
+})
 
 // Export the Router
 module.exports = router

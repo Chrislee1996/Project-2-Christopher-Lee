@@ -1,0 +1,15 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-sm text-center">
+    <form action="/profiles/"" method="POST">
+        <label class="form-label"> About me:</label>
+        <textarea input 
+            type="text" 
+            name="bio"
+            class="form-control"
+            value={{ profile.bio }}
+        ></textarea>
+    <input type="submit" class="btn btn-outline-info" value="Add">
+</div>
+</form>
+{% endblock %}
