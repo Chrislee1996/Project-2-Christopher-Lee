@@ -3,22 +3,25 @@
 <div class="container-md">
     <!-- This is where the discussion stuff are -->
     <article>
-            <h3>{{feed.topic }}</h3>
+        <a href="/feed/" class="btn btn-outline-light"> Go back </a>
+            <h2>{{feed.title }}</h2>
         <!-- if user leaves artist/album/song empty - it will not show -->
             {% if feed.artist.length > 0 %}   
-                <h3>Artist: {{ feed.artist }}</h3>
+                <h4>Artist: {{ feed.artist }}</h4>
             {% endif %}
             {% if feed.song.length > 0 %}
-                <h3>Song: {{ feed.song }}</h3>
+                <h4>Song: {{ feed.song }}</h4>
             {% endif %}
             {% if feed.album.length > 0 %}
                 <h3>Album: {{ feed.album }}</h3>
             {% endif %}
-           <p> Score: {{feed.personalRating}} </p> 
+            {% if feed.personalRating > 0 %}
+                <p> Rating: {{feed.personalRating}} </p> 
+            {% endif %}
         <h6 class="display-6">Topic: {{ feed.opinion }}</h6>
         {% if feed.owner == userId %}
         <span class="btn-group" >
-            <a href="/feed/{{ feed.id }}/edit" class="btn btn-outline-primary";">Edit Post</a> 
+            <a href="/feed/{{ feed.id }}/edit" class="btn btn-outline-warning";">Edit Post</a> 
         </span>
         <span class="btn-group">
             <form action="/feed/{{ feed.id }}?_method=DELETE" method="POST">
@@ -42,7 +45,7 @@
     <!-- Where comments go/populate -->
     <div class="col-md-6">
         <form action="/comments/{{feed.id}}" method="POST">
-            <fieldset >
+            <fieldset>
                 <legend>Add Comment</legend>
                 <label class="form-label">Comment: </label>
                 <textarea input type="text"rows="6"class="form-control bg-dark text-white" name="note" placeholder="enter comment here..." required></textarea>

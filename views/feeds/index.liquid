@@ -6,7 +6,7 @@
         {% for feed in feeds %}
         <div class="card" style="background-color: rgb(27,27,27); margin: 10px;;">
             <h6> Likes: {{feed.rating}}</h6>
-             <a href="/feed/{{ feed.id }}"> {{feed.topic}}  </a>    
+             <a href="/feed/{{ feed.id }}"> {{feed.title}} </a>    
             <div class="card-body">
             {% if feed.artist.length > 0 %}   
                 Artist: {{ feed.artist }}

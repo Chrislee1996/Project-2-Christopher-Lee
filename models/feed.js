@@ -13,7 +13,7 @@ const { Schema, model } = mongoose
 
 //feeds schema
 const feedsSchema = new Schema({
-    topic: {type:String, required:true},
+    title: {type:String, required:true},
     artist: {type: String},
     song: {type: String},
     album: {type: String},
