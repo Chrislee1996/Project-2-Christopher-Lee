@@ -2,13 +2,14 @@
 {% block content %}
 <body class = 'indexbody'> 
     <h2>Welcome {{username | capitalize}}!  I hope you enjoy your stay at Rate my Music! </h2> 
+    <h5> Most popular Artists</h5>
     <a href="/">  Back to Top Charts </a></br>
     <a href="/genre/">  Browse by Genre </a> 
 
         {% for topartist in topartists %}
         <div style="color: rgb(231, 223, 223)">
             <hr style="color: #eee;"> 
-                <h4> <a href="{{topartist.url}}"> {{topartist.name}} </a></h4> 
+                <h4> <a href="{{topartist.url}}" target="_blank"> {{topartist.name}} </a></h4> 
                 <h5>Playcount:{{topartist.playcount}} Listeners: {{topartist.listeners}} </h5>
             </hr>
         </div>

@@ -6,13 +6,13 @@
             <input type="text"  name="song" placeholder= 'Enter an Artist'/> 
             <input type="submit" class="btn btn-success">
         </form> </br>
-        <h1 class="display-3">Results for {{songs[0].artist.name}}:</h1>
+        <h1 class="display-6">Top Songs for {{songs[0].artist.name}}:</h1>
         {% for song in songs %}
-            <ul> 
-                <h5 class="display-5 "> {{song['@attr'].rank}}.{{song.name}}:</h5> </br>
+            <hr> 
+                <h5 class="display-6 "> {{song['@attr'].rank}}.{{song.name}}:</h5> </br>
                 Play Count: {{song.playcount}} </br>
-                <a href={{song.url}} target="_blank">Check it out!</a> </br>
-            </ul>
+                <a href={{song.url}} target="_blank">Check {{song.name}} out!</a> </br>
+            </hr>
         {% endfor %}
 
 

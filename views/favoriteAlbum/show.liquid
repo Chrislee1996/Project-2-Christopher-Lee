@@ -5,13 +5,14 @@
         <input type="text"  name="favoriteAlbum"> 
         <input type="submit" class="btn btn-success">
 
-    <h1 class="display-3">Results:</h1>
+    <h1 class="display-3">Top Albums:</h1>
     {% for favoriteAlbums in favoriteAlbum %}
     <ul> 
-        <p> <h2> {{favoriteAlbums['@attr'].rank}}.{{favoriteAlbums.name}} by {{favoriteAlbums.artist.name}} </h2> 
-       <a href={{favoriteAlbums.url}} target="_blank"><img src = {{favoriteAlbums.image[3]['#text']}}></a> </br>
-        Play Count: {{favoriteAlbums.playcount}}  </p>
-
+        <hr>
+            <p> <h2> {{favoriteAlbums['@attr'].rank}}.{{favoriteAlbums.name}} by {{favoriteAlbums.artist.name}} </h2> 
+            <a href={{favoriteAlbums.url}} target="_blank"><img src = {{favoriteAlbums.image[2]['#text']}}></a> </br>
+            Play Count: {{favoriteAlbums.playcount}}  </p>
+        </hr>
     </ul>
     {% endfor %}
 </form> </br> 

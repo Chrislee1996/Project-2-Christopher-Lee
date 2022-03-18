@@ -8,11 +8,11 @@
         </form> </br>
         <h1 class="display-3">Results:</h1>
         {% for artists in artist %}
-        <ul> 
+        <hr> 
            <h5> {{artists.name}}   </h5>
             Likihood of likeness: {{artists.match}} </br>
-           <a href={{artists.url}} target="_blank">Profile</a>
-        </ul>
+           <a href={{artists.url}} target="_blank">Check {{artists.name}} out</a>
+        </hr>
         {% endfor %}
 
 {% endblock %}

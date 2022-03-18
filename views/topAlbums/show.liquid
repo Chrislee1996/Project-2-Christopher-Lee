@@ -6,16 +6,16 @@
             <input type="text"  name="artist" placeholder= 'Enter an Artist'/> 
             <input type="submit" class="btn btn-success">
         </form> </br>
-        <h1 class="display-3">Results for {{album[0].artist.name}}:</h1>
+        <h1 class="display-6">Top Albums for {{album[0].artist.name}}:</h1>
         <!-- {{album.name}} -->
         {% for albums in album %}
-        <ul> 
-            <h5 class="display-1 "> {{albums.name}}:</h5> </br>
+        <hr> 
+            <h5 class="display-4 "> {{albums.name}}:</h5> </br>
             <a href={{albums.url}} target="_blank">
-          <img src = {{albums.image[3]['#text']}}> </a> </br>
-            <a href={{albums.url}} target="_blank" class="display-4">Check it out!</a> </br>
+          <img src = {{albums.image[2]['#text']}}> </a> </br>
+            <a href={{albums.url}} target="_blank" class="display-4">Check {{albums.name}} out!</a> </br>
             <div class="display-6">  # Of Plays: {{albums.playcount}} </div>
-        </ul>
+        </hr>
         {% endfor %}
 
 

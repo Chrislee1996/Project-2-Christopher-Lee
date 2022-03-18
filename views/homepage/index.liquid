@@ -9,9 +9,9 @@
 {% for toptrack in toptracks %}
     <div style="color: rgb(231, 223, 223)">
         <hr style="color: #eee;"> 
-            <h4>{{toptrack.name}} by   <a href ={{toptrack.artist.url}}>{{toptrack.artist.name}} </a>  </h4> 
+            <h4>{{toptrack.name}} by   <a href ={{toptrack.artist.url}} target="_blank">{{toptrack.artist.name}} </a>  </h4> 
             <h5> Total play count: {{toptrack.playcount}}  </h5>
-            <h2><a href = {{toptrack.url}}>  Check it out! </a>
+            <h2><a href = {{toptrack.url}} target="_blank">  Check it out! </a>
         </hr>
     </div>
 {% endfor %}  

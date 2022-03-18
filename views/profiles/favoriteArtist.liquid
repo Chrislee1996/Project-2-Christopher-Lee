@@ -6,10 +6,14 @@
 
     <div class="container text-center">
         <form method ="POST"> 
+            <h4> Favorite Artists:</h4>
             {% for userFavoriteArtists in userFavoriteArtist %}
             <ul> 
-                <p> <h2> {{userFavoriteArtists['@attr'].rank}}.{{userFavoriteArtists.name}} </h2> Play Count: {{userFavoriteArtists.playcount}}  </p>
-                <a href= {{userFavoriteArtists.url}} target='_blank' class="display-6">Check them out!</a>
+                <hr>
+                    <h2> {{userFavoriteArtists['@attr'].rank}}.{{userFavoriteArtists.name}} </h2>
+                    <a href= {{userFavoriteArtists.url}} target='_blank' class="display-6">Check {{userFavoriteArtists.name}} out!</a></br>
+                    <h4> Play Count: {{userFavoriteArtists.playcount}} </h4>
+                </hr>
             </ul>
             {% endfor %}
     </div>

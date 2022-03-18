@@ -2,14 +2,14 @@
 {% block content %}
 <body class = 'indexbody'> 
     <h2>Welcome {{username | capitalize}}!  I hope you enjoy your stay at Rate my Music! </h2> 
-    <h5> Not sure where to begin? Here are some top hits for you!</h5>
+    <h5>Popular Genres</h5>
     <a href="/">  Back to Tracks </a></br>
     <a href="/artistCharts/">Browse by Artist</a>
 
 {% for tag in tags %}
     <div style="color: rgb(231, 223, 223)">
         <hr style="color: #eee;"> 
-            <h4> <a href="{{tag.url}}"> {{tag.name | capitalize}} </a></h4>
+            <h4> <a href="{{tag.url}}" target="_blank"> {{tag.name | capitalize}} </a></h4>
         </hr>
     </div>
 {% endfor %}  

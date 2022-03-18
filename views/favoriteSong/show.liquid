@@ -5,12 +5,14 @@
             <input type="text"  name="favoriteTrack"> 
             <input type="submit" class="btn btn-success">
 
-        <h1 class="display-3">Results:</h1>
+        <h1 class="display-3">Top Tracks:</h1>
         {% for favoriteTracks in favoriteTrack %}
-        <ul> 
-            <p> <h2> {{favoriteTracks['@attr'].rank}}.{{favoriteTracks.name}} by {{favoriteTracks.artist.name}} </h2> Play Count: {{favoriteTracks.playcount}}  </p>
-            <a href= {{favoriteTracks.url}} target='_blank' class="display-6">Check it out!</a>
-        </ul>
+            <ul> 
+            <hr> 
+                <p> <h2> {{favoriteTracks['@attr'].rank}}.{{favoriteTracks.name}} by {{favoriteTracks.artist.name}} </h2> Play Count: {{favoriteTracks.playcount}}  </p>
+                <a href= {{favoriteTracks.url}} target='_blank' class="display-6">Check {{favoriteTracks.name}} out!</a>
+            </hr>
+            </ul>
         {% endfor %}
         
     </form> </br> 

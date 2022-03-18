@@ -1,14 +1,15 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div class="container; text-center"> 
-
     <a href="/profiles/favoriteArtist" class="btn btn-outline-light" for="btn-check-2"> Next </a> 
     <div class="container text-center">
         <form method ="POST"> 
             {% for userFavoriteTracks in userFavoriteTrack %}
             <ul> 
-                <p> <h4> {{userFavoriteTracks['@attr'].rank}}.{{userFavoriteTracks.name}} by {{userFavoriteTracks.artist.name}} </h4> Play Count: {{userFavoriteTracks.playcount}}  </p>
-                <a href= {{userFavoriteTracks.url}} target='_blank' class="display-6">Check it out!</a>
+                <hr>
+                    <p> <h4 class="display-6"> {{userFavoriteTracks['@attr'].rank}}.{{userFavoriteTracks.name}} by {{userFavoriteTracks.artist.name}} </h4> Play Count: {{userFavoriteTracks.playcount}}  </p>
+                    <a href= {{userFavoriteTracks.url}} target='_blank'> <h4>Check {{userFavoriteTracks.name}} out! </h4> </a>
+                </hr>
             </ul>
             {% endfor %}
     </div>
