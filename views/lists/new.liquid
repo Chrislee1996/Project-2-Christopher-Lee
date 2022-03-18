@@ -1,0 +1,48 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-sm">
+            <form action="/lists" method="POST">
+                <fieldset class='container'>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                    <legend class="text-center">Listen-List</legend>
+                    <label class="form-label">Artist(required): </label>
+                        <input 
+                            type="text" 
+                            name="artist"
+                            placeholder="Artist"
+                            class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Album(optional):</label>
+                        <input 
+                            type="text" 
+                            name="album" 
+                            placeholder="Album Name"
+                            class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Song(optional):</label>
+                        <input 
+                        type="text" 
+                        name="song" 
+                        placeholder="Song Name"
+                        class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Link if available</label>
+                        <input 
+                        type="url" 
+                        name="link" 
+                        placeholder="URL of Artist/Song/Album"
+                        class="form-control bg-dark text-white"
+                    >
+                <input 
+                    type="submit" 
+                    value="Add to list"
+                    class="btn btn-success"
+                >
+            </fieldset>
+            </form>
+        </div>
+    </div> 
+</div>
+{% endblock %}

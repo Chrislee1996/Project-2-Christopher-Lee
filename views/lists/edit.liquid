@@ -1,0 +1,48 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-sm">
+            <form action="/lists" method="POST">
+                <fieldset class='container'>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                    <legend class="text-center">Edit Listen-List</legend>
+                    <label class="form-label">Artist(required): </label>
+                        <input 
+                            type="text" 
+                            name="artist"
+                            value="{{list.artist}}"
+                            class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Album(s)(optional):</label>
+                        <input 
+                            type="text" 
+                            name="album" 
+                            placeholder="{{list.album}}"
+                            class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Song(s)(optional):</label>
+                        <input 
+                        type="text" 
+                        name="song" 
+                        placeholder="{{list.song}}"
+                        class="form-control bg-dark text-white"
+                        >
+                    <label class="form-label">Link if available</label>
+                        <input 
+                        type="url" 
+                        name="link" 
+                        placeholder="URL of Artist/Song/Album"
+                        class="form-control bg-dark text-white"
+                    >
+                <input 
+                    type="submit" 
+                    value="Add to list"
+                    class="btn btn-success"
+                >
+            </fieldset>
+            </form>
+        </div>
+    </div> 
+</div>
+{% endblock %}

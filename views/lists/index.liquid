@@ -1,0 +1,25 @@
+
+{% layout 'layout.liquid'%}
+
+{% block content %}
+    <div >
+        <h2 class="display-6 text-center">Music to check-out</h2>
+        <a href="/lists/new" class="nav-link text-light text-center btn btn-outline-info">Add something new</a>
+        <div class="row">
+            {% for list in lists %}
+                <div class="card bg-dark" style="width: 18rem;">
+                    <!-- card header -> name of fruit -->
+                    <!-- card body -> ready to eat as title, color as text-->
+                    <a href="/lists/{{ list.id }}"><h5 class="card-header">{{list.artist}}</h5></a>
+                    <div class="card-body">
+                        <p class="card-text"> 
+                            {{list.album}}</br>
+                            {{list.song}}</br>
+                           <a href="{{list.link}}">Link</a> 
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

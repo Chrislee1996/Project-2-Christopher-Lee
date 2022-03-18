@@ -1,0 +1,26 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<a href="/lists/" class="btn btn-outline-info"> Back to List</a>
+<div class="text-center"> 
+        <a href="/lists/{{ list.id }}/edit" class="btn btn-outline-primary">Edit</a>
+
+    <h1> {{list.artist}} </h1>
+    {% if list.album.length > 0 %}
+        <h3> Album:{{list.album}}</h3>  </br>
+
+    {% endif %}
+    {% if list.song.length > 0 %}
+        <h3> Song:{{list.song}}</h3>
+    {% endif %}
+
+    {% if list.link.length > 0 %}
+        <h3><a href=" {{list.link}}" target="_blank"> Link </a></h3>
+    {% endif %}
+
+    <form action="/lists/{{ list._id }}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete from List" class="btn btn-outline-danger">
+    </form>
+
+</div>
+
+{% endblock %}

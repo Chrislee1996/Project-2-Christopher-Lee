@@ -15,6 +15,7 @@ const FavoriteArtistRoute  = require('./controllers/favoriteArtist')
 const FavoriteAlbumRoute  = require('./controllers/favoriteAlbum')
 const FavoriteSongRoute  = require('./controllers/favoriteSong')
 const HomeRoute = require('./controllers/home')
+const ListRoute = require('./controllers/list')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -39,6 +40,7 @@ app.use('/comments', CommentRoute)
 app.use('/favoriteArtist', FavoriteArtistRoute)
 app.use('/favoriteAlbum', FavoriteAlbumRoute)
 app.use('/favoriteSong', FavoriteSongRoute)
+app.use('/lists', ListRoute)
 app.use('/', HomeRoute)
 
 // app.get('/', (req, res) => {
