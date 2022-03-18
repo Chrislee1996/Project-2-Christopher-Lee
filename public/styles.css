@@ -1,3 +1,8 @@
+.indexbody {
+    text-align:center;
+    background-image: url('109275831.jpg');
+}
+
 body {
     color: #AACCFF;
     background-image: url('862213.jpg');
@@ -17,8 +22,4 @@ body {
 .feedRating {
     margin-left: 5em;
 }
-
-/* .listedchart {
-    font-size: 30px;
-} */
 

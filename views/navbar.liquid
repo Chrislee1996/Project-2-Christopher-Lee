@@ -5,22 +5,14 @@
         {% if loggedIn %}
         <a href="/profiles" class="nav-link text-light">Profile</a>
         {% endif %}
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             {% if loggedIn %}
-            <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Community
-              </a>
-                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                <a href="/feed/" class="nav-link text-light">Feed</a>
-                <a href="/feed/mine/" class="nav-link text-light">My Post</a>
-                <a href="/feed/new" class="nav-link text-light">Post a Topic</a>
-              </ul>
-            </div>
-
+<!-- Drop down for look up music -->
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Music Browser
@@ -31,7 +23,7 @@
                       <li><a href="/topSongs/" class="nav-link text-light">Top Songs of an Artist</a></li>
                     </ul>
                 </div>
-
+<!-- Drop down for looking up a user -->
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Stalk a Friend
@@ -41,6 +33,17 @@
                       <li><a href="/favoriteArtist/" class="nav-link text-light">Artist</a></li>
                       <li><a href="/favoriteSong/" class="nav-link text-light">Song</a></li>
                     </ul>
+                </div>
+<!-- Drop down for community feed -->
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Community
+                  </a>
+                    <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <a href="/feed/" class="nav-link text-light">Feed</a>
+                    <a href="/feed/mine/" class="nav-link text-light">My Post</a>
+                    <a href="/feed/new" class="nav-link text-light">Post a Topic</a>
+                  </ul>
                 </div>
 
                 Signed in as {{username}}
