@@ -2,8 +2,9 @@
 {% block content %}
 <body class = 'indexbody'> 
     <h2>Welcome {{username | capitalize}}!  I hope you enjoy your stay at Rate my Music! </h2> 
-    <h5> Not sure where to begin? Heres some top hits for you!</h5>
-
+    <h5> Not sure where to begin? Here are some top hits for you!</h5>
+    <a href="/artistCharts/">  Browse by artist </a></br>
+    <a href="/genre/">Browse by genre</a>
 
 {% for toptrack in toptracks %}
     <div style="color: rgb(231, 223, 223)">
