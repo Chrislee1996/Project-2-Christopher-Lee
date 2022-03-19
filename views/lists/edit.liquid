@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div class="container-sm">
-            <form action="/lists" method="POST">
+            <form action="/lists/{{ list.id }}?_method=PUT" method="POST">
                 <fieldset class='container'>
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-12"></div>
@@ -32,18 +32,29 @@
                         <input 
                         type="url" 
                         name="link" 
-                        placeholder="URL of Artist/Song/Album"
+                        value= "{{list.link}}"
                         class="form-control bg-dark text-white"
                     >
-                    <label class="form-label">Rating 1-10:</label>
-                    <input 
-                    type="number" 
-                    name="rating" 
-                    class="form-control bg-dark text-white"
-                    >
+                    
+                    <label class="form-label">Rating(1-10) if applicable:</label>
+                    <select name="rating">Rating
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    </select>
+                    </br>
+
                 <input 
                     type="submit" 
-                    value="Add to list"
+                    value="Edit"
                     class="btn btn-success"
                 >
             </fieldset>

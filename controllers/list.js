@@ -31,13 +31,11 @@ router.use((req, res, next) => {
 
 // index for our list
 router.get('/', (req, res) => {
-	// find the fruits
 	List.find({})
 		// then render a template AFTER they're found
 		.then((lists) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			// console.log(fruits)
 			res.render('lists/index', { lists, username, loggedIn })
 		})
 		// show an error if there is one
@@ -73,15 +71,12 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const listId = req.params.id
-	// find the fruit
 	List.findById(listId)
-		// -->render if there is a fruit
 		.then((list) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
 			res.render('lists/edit', { list, username, loggedIn })
 		})
-		// -->error if no fruit
 		.catch((err) => {
 			console.log(err)
 			res.json(err)
@@ -93,10 +88,9 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
 	// get the id
 	const listId = req.params.id
-	Fruit.findByIdAndUpdate(listId, req.body, { new: true })
-		// if successful -> redirect to the fruit page
+	List.findByIdAndUpdate(listId, req.body, { new: true })
 		.then((list) => {
-			res.redirect(`/fruits/${list.id}`)
+			res.redirect(`/lists/${list.id}`)
 		})
 		// if an error, display that
 		.catch((error) => res.json(error))
@@ -106,7 +100,6 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	// first, we need to get the id
 	const listId = req.params.id
-	// then we can find a fruit by its id
 	List.findById(listId)
 		// once found, we can render a view with the data
 		.then((list) => {
@@ -124,9 +117,7 @@ router.get('/:id', (req, res) => {
 
 // delete route
 router.delete('/:id', (req, res) => {
-	// get the fruit id
 	const listId = req.params.id
-	// delete the fruit
 	List.findByIdAndRemove(listId)
 		.then((list) => {
 			res.redirect('/lists')
