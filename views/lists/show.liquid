@@ -15,7 +15,11 @@
     {% if list.link.length > 0 %}
         <h3><a href=" {{list.link}}" target="_blank"> Link </a></h3>
     {% endif %}
-    Score: {{list.rating}}</br>
+
+
+    {% if list.rating > 0 %}
+        Score: {{list.rating}}</br>
+    {% endif %}
     <form action="/lists/{{ list._id }}?_method=DELETE" method="POST">
         <input type="submit" value="Delete from List" class="btn btn-outline-danger">
     </form>

@@ -31,12 +31,13 @@ router.use((req, res, next) => {
 
 // index for our list
 router.get('/', (req, res) => {
-	List.find({})
+	const { username, userId, loggedIn } = req.session
+	List.find({owner: userId})
 		// then render a template AFTER they're found
 		.then((lists) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			res.render('lists/index', { lists, username, loggedIn })
+			res.render('lists/', { lists, username, loggedIn })
 		})
 		// show an error if there is one
 		.catch((error) => {
