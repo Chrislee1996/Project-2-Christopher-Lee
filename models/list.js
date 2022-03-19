@@ -2,7 +2,7 @@
 // import dependencies
 /////////////////////////////////
 const mongoose = require('./connection')
-
+const commentSchema = require('./comment')
 /////////////////////////////////
 // define our feeds model
 /////////////////////////////////
