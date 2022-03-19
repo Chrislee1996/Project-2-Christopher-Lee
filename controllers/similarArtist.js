@@ -23,12 +23,14 @@ router.use((req, res, next) => {
 
 //routes
 
+//index route that renders the similar artist page 
 router.get('/', (req,res)=> {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
     res.render('musicSearch/similarArtist/index', { username, loggedIn })
 })
 
+//actual gets the API data and posts it in our show route (also renders the show route)
 router.post('/', (req,res)=> {
     const username = req.session.username
     const loggedIn = req.session.loggedIn

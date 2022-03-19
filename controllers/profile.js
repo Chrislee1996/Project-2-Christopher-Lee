@@ -23,7 +23,7 @@ router.use((req, res, next) => {
 
 
 
-// index ALL profile route
+// index route that shows our profile 
 router.get('/', (req, res) => {
 	// find the profile
 	Profile.find({})

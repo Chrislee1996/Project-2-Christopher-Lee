@@ -22,7 +22,7 @@ router.use((req, res, next) => {
 
 
 // Routes
-// this will create our index page 
+// this will create our index page for our favorite album
 router.get('/', (req, res) => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
@@ -49,6 +49,7 @@ router.post('/', (req,res)=> {
 			res.json({ err: "Please enter a valid album remember spaces and spell matter!" })
 		})
 })
+
 
 
 // Export the Router

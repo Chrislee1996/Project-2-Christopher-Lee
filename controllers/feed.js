@@ -28,7 +28,7 @@ router.use((req, res, next) => {
 
 // Routes
 
-// index ALL
+// index page for our feed - this will render the page
 router.get('/', (req, res) => {
 	Feed.find({})
 		.then(feeds => {
@@ -42,7 +42,7 @@ router.get('/', (req, res) => {
 		})
 })
 
-// index that shows only the user's feeds
+// index that shows only the user's feeds(things/topics they made)
 router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
@@ -55,13 +55,13 @@ router.get('/mine', (req, res) => {
 		})
 })
 
-// new route -> GET route that renders our page with the form
+// new route -> GET route that renders our new page with the form 
 router.get('/new', (req, res) => {
 	const { username, userId, loggedIn } = req.session
 	res.render('feeds/new', { username, loggedIn })
 })
 
-// create -> POST route that actually calls the db and makes a new document
+// create -> POST route that actually calls the db and makes a new document from our new route above
 router.post('/', (req, res) => {
 	req.body.ready = req.body.ready === 'on' ? true : false
 
@@ -90,7 +90,7 @@ router.get('/:id/edit', (req, res) => {
 		})
 })
 
-// update route
+// update route - so we can update whatever we just edited
 router.put('/:id', (req, res) => {
 	const feedId = req.params.id
 	req.body.ready = req.body.ready === 'on' ? true : false
@@ -106,7 +106,7 @@ router.put('/:id', (req, res) => {
 
 
 
-//like button
+//like button - increases our rating by 1 when a action is done
 router.put('/:id/feed', (req, res)=> {
     const feedId = req.params.id
     Feed.findByIdAndUpdate( feedId, {$inc: {rating:1}}, {new:true})
@@ -122,7 +122,7 @@ router.put('/:id/feed', (req, res)=> {
 
 
 
-// show route
+// show route to show the feed page we clicked on
 router.get('/:id', (req, res) => {
 	const feedId = req.params.id
 	Feed.findById(feedId)

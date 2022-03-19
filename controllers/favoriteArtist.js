@@ -20,7 +20,7 @@ router.use((req, res, next) => {
 })
 
 // Routes
-// index page
+// index page to render our favorite artist page
 router.get('/', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn

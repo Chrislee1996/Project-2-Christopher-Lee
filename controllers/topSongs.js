@@ -21,6 +21,7 @@ router.use((req, res, next) => {
 })
 
 //routes
+//index - route will render our index page 
 router.get('/', (req,res)=> {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
@@ -28,7 +29,7 @@ router.get('/', (req,res)=> {
 })
 
 
-//This route will fetch our API and post 
+//This route will fetch our API and will render/post the data in our show route (renders show route too)
 router.post('/', (req,res)=> {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn

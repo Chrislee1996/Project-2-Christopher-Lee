@@ -29,7 +29,7 @@ router.use((req, res, next) => {
 // Routes
 ////////////////////////////////////////////
 
-// index for our list
+// index for our list - renders the initla list page 
 router.get('/', (req, res) => {
 	const { username, userId, loggedIn } = req.session
 	List.find({owner: userId})
@@ -46,7 +46,7 @@ router.get('/', (req, res) => {
 		})
 })
 
-// new route -> GET route that renders our page with the form
+// new route -> GET route that renders our page with the new form
 router.get('/new', (req, res) => {
 	const username = req.session.username
 	const loggedIn = req.session.loggedIn
@@ -54,7 +54,7 @@ router.get('/new', (req, res) => {
 })
 
 
-// create -> POST route that actually calls the db and makes a new document
+// create -> POST route that actually calls the db and makes a new document and creates the new whatver in our page 
 router.post('/', (req, res) => {
 	req.body.owner = req.session.userId
 	List.create(req.body)
@@ -85,7 +85,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 
-// update route -> sends a put request to our database
+// update route -> sends a put request to our database and actually updates whatever we edited 
 router.put('/:id', (req, res) => {
 	// get the id
 	const listId = req.params.id
@@ -97,7 +97,7 @@ router.put('/:id', (req, res) => {
 		.catch((error) => res.json(error))
 })
 
-// show route
+// show route to show the list after being clicked and redirected 
 router.get('/:id', (req, res) => {
 	// first, we need to get the id
 	const listId = req.params.id
