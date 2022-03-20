@@ -13,7 +13,7 @@ const listSchema = new Schema({
     artist: {type: String, required:true},
     album: {type: String},
     song: {type: String},
-    rating: {type:Number, min:1,max:10},
+    rating: {type:String},
     link: {type: String},
     owner: {
         //reference the type objectId
