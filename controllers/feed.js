@@ -105,7 +105,6 @@ router.put('/:id', (req, res) => {
 })
 
 
-
 //like button - increases our rating by 1 when a action is done
 router.put('/:id/feed', (req, res)=> {
     const feedId = req.params.id
@@ -119,7 +118,6 @@ router.put('/:id/feed', (req, res)=> {
         res.json({error})
     })
 })
-
 
 
 // show route to show the feed page we clicked on
