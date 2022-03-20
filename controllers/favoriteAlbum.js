@@ -20,7 +20,6 @@ router.use((req, res, next) => {
 })
 
 
-
 // Routes
 // this will create our index page for our favorite album
 router.get('/', (req, res) => {
