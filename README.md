@@ -5,6 +5,7 @@
 ## Find my music
 >The premise of this project is to a network for users who enjoy music and have them be able to log information in their profile about certain artist,songs and trends that they like while also helping users with find new songs/artist.
 
+
 ## Technologies used
 >Will will be created with CSS/bootstrap, Javascript, Node, mongoose and express
 
@@ -16,9 +17,16 @@
 ## Installations needed
 >npm i express mongoose method-override liquid-express-views dotenv morgan node-fetch
 
+> Touch env
+
+>Please register an account from last.fm to obtain an Apikey and remember to store your APIKEY in a safe place!
+
+>PLEASE NOTE, FOR BEST RESULTS OF THIS APP, USERS SHOULD LINK THEIR LAST.FM ACCOUNT TO SPOTIFY/APPLE MUSIC AND SET THEIR USERNAME ON RATEMYMUSIC AS THE SAME USER ON LAST.FM
+
 ## User story
 > As a user, this application should allow them to be able to search for an artist and the output will be artist similar to this artist. Also, the user should be able to search for albums and songs of an artist. 
 > As a user, they should be able to dicuss their music opinions and allow other users to comment on this.
+> As a user, they should be able to have a list of artist,songs or albums they want to listen to as well as rating them.
 
 ## MVP of the project
 >Project will utilize CRUD and use RESTful routes. 
@@ -78,6 +86,7 @@
 ![](images/IMG_1532.jpg)
 
 >At this user profile, they can give opinions on a new artist/song that they discovered and give their opinion/comments. User will be allowed to edit/delete their comments in case they change their minds.
+
 
 ![](images/IMG_1533.jpg)
 
