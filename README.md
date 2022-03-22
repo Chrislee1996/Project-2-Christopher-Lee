@@ -15,7 +15,9 @@
 > https://www.last.fm/api
 
 ## Installations needed
->npm i express mongoose method-override liquid-express-views dotenv morgan node-fetch
+> Fork and clone this repo this to your computer
+
+> npm i express mongoose method-override liquid-express-views dotenv morgan node-fetch
 
 > Touch env
 
@@ -64,7 +66,7 @@
 
 >Index page of the user's profile should display the users most popular artist and albums and favorite songs.
 
-
+## Wireframes
 ![](images/IMG_1528.jpg)
 
 >Website will load and give the option for the user to either login to their account or sign-up
@@ -87,6 +89,6 @@
 
 >At this user profile, they can give opinions on a new artist/song that they discovered and give their opinion/comments. User will be allowed to edit/delete their comments in case they change their minds.
 
-
+## ERD
 ![](images/IMG_1533.jpg)
 
