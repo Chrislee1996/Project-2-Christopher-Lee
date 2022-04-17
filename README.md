@@ -9,6 +9,10 @@
 ## Technologies used
 >Will will be created with CSS/bootstrap, Javascript, Node, mongoose and express
 
+## Check project out here!
+
+https://ratemymusic.herokuapp.com/feed/6239e7bfec276f0034b1e404
+
 ## API utilized
 >Project will be built by the help of last.fm API
 
