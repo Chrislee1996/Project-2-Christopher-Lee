@@ -7,11 +7,23 @@
 
 
 ## Technologies used
->Will will be created with CSS/bootstrap, Javascript, Node, mongoose and express
+
+* Css/bootstrap
+
+* Javascript
+
+* Express
+
+* Liquid Express views
+
+* Mongoose
+
+* Node.js
 
 ## Check project out here!
 
 https://ratemymusic.herokuapp.com/feed/6239e7bfec276f0034b1e404
+
 
 ## API utilized
 >Project will be built by the help of last.fm API
@@ -23,11 +35,33 @@ https://ratemymusic.herokuapp.com/feed/6239e7bfec276f0034b1e404
 
 > npm i express mongoose method-override liquid-express-views dotenv morgan node-fetch
 
-> Touch env
+> Touch env and make sure to add the following: 
+
+DATABASE_URL= mongodb://localhost/musicapp
+
+PORT=3000
+
+APIKEY = This is where you will input the API key given via last.fm
+
+SECRET=thiscanbeanythingaslongasitisinyourenvfileitsfine
+
+> npm install (to install dependencies)
 
 >Please register an account from last.fm to obtain an Apikey and remember to store your APIKEY in a safe place!
 
 >PLEASE NOTE, FOR BEST RESULTS OF THIS APP, USERS SHOULD LINK THEIR LAST.FM ACCOUNT TO SPOTIFY/APPLE MUSIC AND SET THEIR USERNAME ON RATEMYMUSIC AS THE SAME USER ON LAST.FM
+
+
+## Route Tables:
+
+# Authentication 
+
+| Verb | URL Pattern | Controller Action |
+| :---         |     :---:      |          ---: |
+| POST   | /auth/signup     | users signup    |
+| POST     | /auth/login     | users login   |
+| DELETE     | /auth/logout      | users logout      |
+
 
 ## User story
 > As a user, this application should allow them to be able to search for an artist and the output will be artist similar to this artist. Also, the user should be able to search for albums and songs of an artist. 
@@ -35,33 +69,6 @@ https://ratemymusic.herokuapp.com/feed/6239e7bfec276f0034b1e404
 > As a user, they should be able to dicuss their music opinions and allow other users to comment on this.
 
 > As a user, they should be able to have a list of artist,songs or albums they want to listen to as well as rating them.
-
-## Route Maps
-> Our comment route will display comments in our feed - note, comments are only deletable by the users only.
-
-> Our favorite album route will allow users to search for another users favorite album provided they have their username.
-
-> Our favorite artist route will allow users to search for another users favorite artist provided they have their usernam
-e,
-> Our favorite song route will allow users to search for another users favorite song provided they have their username.
-
-> Our feed route allows users to interact with each other. Users can post topics of their choosing while other users can comment on the post as well.
-
->Our home route is the route users will load into after logging in. This will display different charts from top songs, artist and genres. 
-
->Our list route is user specific and will allow users to add/delete something they want to listen to (such as an album or song of an artist). Users can then decide the rating of the song/album of the artist.
-
-> Our middleware route is neccessary so users can continue with the website experience
-
-> Our profile route is also user specific and will allow users to get their favorite artist,songs and albums. Again, per the installation statement above, to get this to work properly, please link your spotify/apple music to last.fm. Afterwards, your user profile name will need to be the same as the username on last.fm
-
-> Our similar artist route will allow users to search for similar artist depending on their search 
-
-> Our top albums route will allow users to search for an artist's top albums
-
-> Our top songs route will allow users to search for an artist's top songs
-
-> Our users route will force the user to create an account or else no other routes/links will be accessible. 
 
 
 ## MVP of the project
@@ -125,4 +132,31 @@ e,
 
 ## ERD
 ![](images/IMG_1533.jpg)
+
+## Route Maps
+> Our comment route will display comments in our feed - note, comments are only deletable by the users only.
+
+> Our favorite album route will allow users to search for another users favorite album provided they have their username.
+
+> Our favorite artist route will allow users to search for another users favorite artist provided they have their usernam
+e,
+> Our favorite song route will allow users to search for another users favorite song provided they have their username.
+
+> Our feed route allows users to interact with each other. Users can post topics of their choosing while other users can comment on the post as well.
+
+>Our home route is the route users will load into after logging in. This will display different charts from top songs, artist and genres. 
+
+>Our list route is user specific and will allow users to add/delete something they want to listen to (such as an album or song of an artist). Users can then decide the rating of the song/album of the artist.
+
+> Our middleware route is neccessary so users can continue with the website experience
+
+> Our profile route is also user specific and will allow users to get their favorite artist,songs and albums. Again, per the installation statement above, to get this to work properly, please link your spotify/apple music to last.fm. Afterwards, your user profile name will need to be the same as the username on last.fm
+
+> Our similar artist route will allow users to search for similar artist depending on their search 
+
+> Our top albums route will allow users to search for an artist's top albums
+
+> Our top songs route will allow users to search for an artist's top songs
+
+> Our users route will force the user to create an account or else no other routes/links will be accessible. 
 
